@@ -1,0 +1,61 @@
+name: Weekly price check
+
+# Baselines drift with Egyptian inflation. This re-scrapes Carrefour weekly and opens an
+# issue when something moved, rather than rewriting prices unattended -- a scrape failure
+# or a site redesign must never silently poison the data tourists rely on.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check for price drift
+        id: drift
+        continue-on-error: true
+        run: |
+          python scripts/refresh.py --check | tee drift.txt
+          echo "status=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+
+      - name: Open an issue when prices moved
+        if: steps.drift.outputs.status != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('drift.txt', 'utf8');
+            const today = new Date().toISOString().slice(0, 10);
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Price drift detected — ${today}`,
+              body: [
+                'The weekly Carrefour check found changes worth reviewing.',
+                '',
+                '```',
+                body.trim(),
+                '```',
+                '',
+                'To accept these prices:',
+                '```bash',
+                'python scripts/refresh.py   # rewrites data/products.json',
+                '```',
+                'Then commit the result; the deploy rebuilds automatically.',
+              ].join('\n'),
+            });

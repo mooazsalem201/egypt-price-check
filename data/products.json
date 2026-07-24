@@ -1,0 +1,246 @@
+[
+  {
+    "id": "water-600ml",
+    "name": "Water 600ml",
+    "name_ar": "مياه ٦٠٠ مل",
+    "category": "drinks",
+    "baseline_egp": 5.5,
+    "aliases": [
+      "water",
+      "bottle",
+      "small water",
+      "aqua",
+      "safi",
+      "maya"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Aqua Delta Natural Drinking Water - 600ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/still-water/aqua-delta-water-600m/p/510163",
+      "size": "600ml"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "water-15l",
+    "name": "Water 1.5L",
+    "name_ar": "مياه ١.٥ لتر",
+    "category": "drinks",
+    "baseline_egp": 8.99,
+    "aliases": [
+      "water",
+      "big water",
+      "dasani",
+      "nestle",
+      "hayat",
+      "baraka"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Dasani Natural Drinking Water - 1.5 Liter",
+      "url": "https://www.carrefouregypt.com/mafegy/en/still-water/dasani-natural-water-1-5l/p/104950",
+      "size": "1.5 liter"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "cola-330ml",
+    "name": "Cola can 330ml",
+    "name_ar": "كولا ٣٣٠ مل",
+    "category": "drinks",
+    "baseline_egp": 13.99,
+    "aliases": [
+      "coke",
+      "cola",
+      "coca",
+      "pepsi",
+      "can"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "V Cola Super Soda Sparkling Drink - 300 ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/cola/v-cola-sparking-drink-300-ml/p/626935",
+      "size": "300 ml"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "cola-390ml",
+    "name": "Cola bottle 390ml",
+    "name_ar": "كولا ٣٩٠ مل",
+    "category": "drinks",
+    "baseline_egp": 10.49,
+    "aliases": [
+      "coke",
+      "cola",
+      "pepsi",
+      "soft drink"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Pepsi Cola Soft Drink Bottle - 390 ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/cola/pepsi-cola-pet-390m/p/392583",
+      "size": "390 ml"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "chips-small",
+    "name": "Potato chips small bag",
+    "name_ar": "شيبسي صغير",
+    "category": "snacks",
+    "baseline_egp": 9.99,
+    "aliases": [
+      "chips",
+      "crisps",
+      "lays",
+      "chipsy",
+      "snack"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Chipsy Cheese Potato Chips - 65gm",
+      "url": "https://www.carrefouregypt.com/mafegy/en/chips/chipsy-cheese-65g/p/618172",
+      "size": "65gm"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "juice-1l",
+    "name": "Juice 1L",
+    "name_ar": "عصير ١ لتر",
+    "category": "drinks",
+    "baseline_egp": 24.49,
+    "aliases": [
+      "juice",
+      "orange juice",
+      "mango",
+      "juhayna"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Bashayer Guava Juice - 1 Liter",
+      "url": "https://www.carrefouregypt.com/mafegy/en/concentrate-fruit-juice/bashayer-guava-juice-1l/p/468651",
+      "size": "1 liter"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "energy-drink",
+    "name": "Energy drink can",
+    "name_ar": "مشروب طاقة",
+    "category": "drinks",
+    "baseline_egp": 11.5,
+    "aliases": [
+      "energy",
+      "red bull",
+      "power horse"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Sting Energy Drink - 250 ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/energy-drinks/sting-energy-drink-pet-250ml/p/599898",
+      "size": "250 ml"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "sunscreen",
+    "name": "Sunscreen SPF 50",
+    "name_ar": "واقي شمس",
+    "category": "toiletries",
+    "baseline_egp": 189.95,
+    "aliases": [
+      "sunscreen",
+      "sunblock",
+      "spf",
+      "sun cream",
+      "nivea"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Eva Sun and Sea Kids Sunscreen Lotion SPF 50",
+      "url": "https://www.carrefouregypt.com/mafegy/en/sunblock-lotion/eva-sun-sea-kids-lotion50-100m/p/682079",
+      "size": "100ml"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "tissues",
+    "name": "Pocket tissues",
+    "name_ar": "مناديل جيب",
+    "category": "toiletries",
+    "baseline_egp": 2.0,
+    "aliases": [
+      "tissues",
+      "kleenex",
+      "napkins"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Zeina Pocket Tissues - 10 Tissues - 10 Pieces",
+      "url": "https://www.carrefouregypt.com/mafegy/en/facial-tissues/zeina-facial-tissues-pocket-10p/p/57759",
+      "size": ""
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "chocolate-bar",
+    "name": "Chocolate bar",
+    "name_ar": "لوح شوكولاتة",
+    "category": "snacks",
+    "baseline_egp": 5.99,
+    "aliases": [
+      "chocolate",
+      "galaxy",
+      "snickers",
+      "kitkat",
+      "candy"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Hmto Chocolate Bar - 23 gram",
+      "url": "https://www.carrefouregypt.com/mafegy/en/snacking-chocolates/hmto-bar-chocolate23g/p/619063",
+      "size": "23 gram"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "biscuits",
+    "name": "Biscuits pack",
+    "name_ar": "بسكويت",
+    "category": "snacks",
+    "baseline_egp": 4.99,
+    "aliases": [
+      "biscuits",
+      "cookies",
+      "oreo"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Ulker Tea Biscuits - 12 Biscuits",
+      "url": "https://www.carrefouregypt.com/mafegy/en/assorted-biscuits/ulker-tea-biscuit-12p/p/637030",
+      "size": ""
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "instant-coffee",
+    "name": "Instant coffee sachet",
+    "name_ar": "قهوة سريعة",
+    "category": "drinks",
+    "baseline_egp": 3.5,
+    "aliases": [
+      "coffee",
+      "nescafe",
+      "instant coffee"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Misr Cafe Instant Coffee Sachet - 2 gram",
+      "url": "https://www.carrefouregypt.com/mafegy/en/ground-coffee/misr-cafe-sachet-2g/p/622345",
+      "size": "2 gram"
+    },
+    "updated": "2026-07"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "name": "Egypt Price Check",
+  "short_name": "Egypt Prices",
+  "description": "Fair prices for everyday items in Egypt, in your own currency. Works offline.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0284c7",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
