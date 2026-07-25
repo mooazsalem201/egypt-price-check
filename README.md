@@ -43,6 +43,16 @@ automation is needed.
 Carrefour sells multipacks, so `scripts/carrefour.py` parses the pack count and derives a
 **per-unit** price — a tourist buys one bottle, not a case of twelve.
 
+Two Carrefour quirks worth knowing before editing the scraper:
+
+- **It is a marketplace.** The same product id is sold by several sellers, and the
+  `?offer=offer_carrefour_&sellerId=0000` query string is what pins a link to Carrefour's
+  own offer. Truncating a product URL at the id sends users to whichever seller the site
+  defaults to, which is frequently out of stock.
+- **Its catalogue churns.** Aquafina 600ml and the Sprite 320ml can were both delisted
+  during development. Each chosen product is stock-checked before being committed, and the
+  seeder steps down to the next cheapest candidate when one is unavailable.
+
 ## Zone multipliers are estimates
 
 `data/zones.json` scales the Cairo baseline by region. **Only the Cairo baseline is

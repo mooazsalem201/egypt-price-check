@@ -30,7 +30,11 @@ IMPERSONATE = "chrome124"
 # spaces, or an adjacent pack count ("12 Pieces 107 . 50") merges into "12107.50".
 PRICE_RE = re.compile(r"(?<!\d)(\d{1,5})\s*\.\s*(\d{2})\s*EGP")
 PRODUCT_SPLIT_RE = re.compile(r'(?=href="/mafegy/en/[^"]*?/p/\d+)')
-PRODUCT_HREF_RE = re.compile(r'href="(/mafegy/en/[^"]*?/p/(\d+))')
+# Capture the whole href, query string included. Carrefour is a marketplace: the same
+# product id is sold by several sellers, and "?offer=offer_carrefour_&sellerId=0000" is
+# what pins the link to Carrefour's own in-stock offer. Truncating at the id sends users
+# to whichever seller the site defaults to, which is often out of stock.
+PRODUCT_HREF_RE = re.compile(r'href="(/mafegy/en/[^"]*?/p/(\d+)[^"]*)"')
 
 # Product photos live on Carrefour's CDN under two shapes. Listing pages use
 # "sys-master-root/…/533152_2.jpg" keyed by the listing product id; product pages use the
@@ -173,6 +177,35 @@ def new_session() -> requests.Session:
     return requests.Session(impersonate=IMPERSONATE)
 
 
+# Product pages are fetched for both the photo and the stock check; caching avoids
+# requesting the same page twice per item.
+_page_cache: dict[str, str] = {}
+
+OUT_OF_STOCK_RE = re.compile(r"out of stock|sold out|غير متوفر", re.I)
+
+
+def _product_page(url: str, session: requests.Session) -> str:
+    if url not in _page_cache:
+        _page_cache[url] = session.get(url, timeout=45).text
+    return _page_cache[url]
+
+
+def is_in_stock(product: Product, session: requests.Session) -> bool:
+    """Whether the product page still offers the item.
+
+    Search results are generally in stock, but a listing can go unavailable between the
+    search and the link a tourist eventually taps. A baseline pointing at something that
+    cannot be bought is not verifiable, which is the whole point of publishing the link.
+    """
+    page = _product_page(product.url, session)
+    # An orderable page renders an "Add to cart" control; an unavailable one does not.
+    # The out-of-stock phrase alone is unreliable because it also appears in the
+    # "you might also like" tiles of a perfectly available product.
+    if "add to cart" not in page.lower():
+        return False
+    return len(OUT_OF_STOCK_RE.findall(page)) < 6
+
+
 def _image_suffix(url: str) -> int:
     """The "_N" index of a CDN photo; lower means the primary packaging shot."""
     match = re.search(r"_(\d+)\.(?:jpg|jpeg|png|webp)", url)
@@ -198,7 +231,7 @@ def fetch_image_urls(
     "_1" is the packaging, for others (Aquafina, Dasani) it is a mineral-composition table
     that tells a tourist nothing. Callers pick between them by inspecting the images.
     """
-    page = session.get(product.url, timeout=45).text
+    page = _product_page(product.url, session)
 
     candidates = [m.group(0).rstrip("\\") for m in MAIN_IMAGE_RE.finditer(page)]
     candidates += sorted(

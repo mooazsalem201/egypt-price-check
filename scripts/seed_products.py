@@ -19,7 +19,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from carrefour import Product, fetch_image_urls, new_session, search  # noqa: E402
+from carrefour import Product, fetch_image_urls, is_in_stock, new_session, search  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "products.json"
@@ -97,8 +97,9 @@ CATALOGUE = [
          ["coke", "coca cola", "cola", "bottle", "big coke"], exclude=VARIANTS),
     Item("pepsi-bottle", "Pepsi bottle", "بيبسي زجاجة", "drinks", "pepsi bottle",
          r"pepsi", (380, 400), 60, ["pepsi", "cola", "soft drink"], exclude=VARIANTS),
-    Item("sprite-can", "Sprite can", "سبرايت علبة", "drinks", "sprite can",
-         r"sprite", (300, 360), 60, ["sprite", "lemon", "soda"], exclude=VARIANTS),
+    # Sprite has no entry: Carrefour now stocks only a 2.45L PET bottle, which is not a
+    # kiosk purchase. The 320ml can it sold earlier was delisted, as Aquafina 600ml was.
+    # Re-add if the can returns.
     # The 330ml glass bottle rather than the PET: it is the classic Egyptian kiosk
     # purchase, and unlike the PET listing it has a real product photo.
     Item("fanta-glass", "Fanta glass bottle", "فانتا زجاج", "drinks", "fanta can",
@@ -295,9 +296,18 @@ def main() -> int:
             continue
 
         chosen = pick(results, item)
+        # A link a tourist cannot buy from is not verifiable, so step down to the next
+        # cheapest candidate when the best one turns out to be unavailable.
+        rejected = []
+        while chosen and not is_in_stock(chosen, session):
+            print(f"     (out of stock, skipping: {chosen.name[:44]})", file=sys.stderr)
+            rejected.append(chosen.product_id)
+            chosen = pick([p for p in results if p.product_id not in rejected], item)
+
         if not chosen:
             print(
-                f"  !! {item.id}: no match among {len(results)} results", file=sys.stderr
+                f"  !! {item.id}: no in-stock match among {len(results)} results",
+                file=sys.stderr,
             )
             continue
 
