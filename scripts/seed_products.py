@@ -56,6 +56,13 @@ class Item:
     image_url: str = ""
 
 
+# Flavour and diet line extensions cost more (or less) than the standard product and are
+# not what a tourist is holding, so drink entries exclude them by default.
+# "lime" is deliberately absent: Sprite's own product name is "Sprite Lemon Lime Soda",
+# so excluding it would reject the standard product.
+VARIANTS = r"zero|diet|light|vanilla|cherry|sugar.?free|peach|ginger|apple"
+
+
 # Entries are brand-specific on purpose. A generic "water 600ml" baseline taken from the
 # cheapest local brand makes an Aquafina look overcharged when it is fairly priced, so
 # each entry pins one brand at one size -- matching the photo the tourist is holding.
@@ -77,17 +84,21 @@ CATALOGUE = [
          ["water", "cheap water", "local water", "aqua delta", "safi", "maya"]),
 
     # --- Soft drinks ---
+    # A tourist holding a red can means regular Coke, not Vanilla, Zero or an import.
+    # Without this, the nearest-size match happily returns "Coca Cola With Vanilla" at
+    # 69.50 EGP and every downstream verdict is wrong.
     Item("coke-can", "Coca-Cola can", "كوكاكولا علبة", "drinks", "coca cola can",
-         r"coca cola", (300, 360), 60, ["coke", "coca cola", "cola", "can"]),
+         r"coca cola", (300, 360), 60, ["coke", "coca cola", "cola", "can"],
+         exclude=VARIANTS),
     # Carrefour stocks Coke PET only in 950ml and 2.45L online -- there is no 390ml, so
     # the large bottle is the entry rather than inventing a size that is not sold.
     Item("coke-bottle", "Coca-Cola bottle 950ml", "كوكاكولا زجاجة كبيرة", "drinks",
          "coca cola pet bottle", r"coca cola", (900, 1000), 60,
-         ["coke", "coca cola", "cola", "bottle", "big coke"]),
+         ["coke", "coca cola", "cola", "bottle", "big coke"], exclude=VARIANTS),
     Item("pepsi-bottle", "Pepsi bottle", "بيبسي زجاجة", "drinks", "pepsi bottle",
-         r"pepsi", (380, 400), 60, ["pepsi", "cola", "soft drink"]),
+         r"pepsi", (380, 400), 60, ["pepsi", "cola", "soft drink"], exclude=VARIANTS),
     Item("sprite-can", "Sprite can", "سبرايت علبة", "drinks", "sprite can",
-         r"sprite", (300, 360), 60, ["sprite", "lemon", "soda"]),
+         r"sprite", (300, 360), 60, ["sprite", "lemon", "soda"], exclude=VARIANTS),
     # The 330ml glass bottle rather than the PET: it is the classic Egyptian kiosk
     # purchase, and unlike the PET listing it has a real product photo.
     Item("fanta-glass", "Fanta glass bottle", "فانتا زجاج", "drinks", "fanta can",
@@ -115,7 +126,8 @@ CATALOGUE = [
 
     # --- Other ---
     Item("redbull", "Red Bull", "ريد بول", "drinks", "red bull energy drink",
-         r"red bull", (240, 360), 120, ["red bull", "energy", "energy drink"]),
+         r"red bull", (240, 360), 120, ["red bull", "energy", "energy drink"],
+         exclude=VARIANTS),
     # Sunscreen really does cost this much in Egypt -- the cheapest Carrefour stocks is
     # ~190 EGP and the range runs to 380. The high ceiling is correct, not a loose filter.
     Item("sunscreen", "Sunscreen SPF 50", "واقي شمس", "toiletries", "sunscreen spf",
