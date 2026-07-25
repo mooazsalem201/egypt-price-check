@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import {
   counterOffer,
   judgePrice,
@@ -17,6 +18,8 @@ interface Props {
   zone: Zone;
   currency: CurrencyCode;
   rates: Record<string, number>;
+  /** False on the product's own page, where linking to itself is pointless. */
+  linkToDetail?: boolean;
 }
 
 const VERDICT_STYLES: Record<Verdict, { box: string; label: string; icon: string }> = {
@@ -37,7 +40,13 @@ const VERDICT_STYLES: Record<Verdict, { box: string; label: string; icon: string
   },
 };
 
-export default function ProductCard({ product, zone, currency, rates }: Props) {
+export default function ProductCard({
+  product,
+  zone,
+  currency,
+  rates,
+  linkToDetail = true,
+}: Props) {
   const [asked, setAsked] = useState("");
 
   const bands = priceBands(product.baseline_egp, zone);
@@ -73,7 +82,15 @@ export default function ProductCard({ product, zone, currency, rates }: Props) {
         )}
         <div className="min-w-0">
           <h2 className="text-xl font-bold text-slate-900 dark:text-slate-50">
-            {product.name}
+            {linkToDetail ? (
+              // Links the card to its own page. Without them the per-product pages are
+              // orphans that only the sitemap knows about, which crawlers weight poorly.
+              <Link href={`/price/${product.id}`} className="hover:underline">
+                {product.name}
+              </Link>
+            ) : (
+              product.name
+            )}
           </h2>
           <p className="text-sm text-slate-500 dark:text-slate-400" dir="rtl" lang="ar">
             {product.name_ar}

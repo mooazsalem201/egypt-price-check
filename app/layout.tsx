@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import ServiceWorker from "@/components/ServiceWorker";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -9,9 +10,46 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Egypt Price Check — what should this cost?",
-  description:
-    "Fair prices for water, snacks and everyday items in Egypt, adjusted for where you are and shown in your own currency. Works offline.",
+  // metadataBase makes every relative URL below resolve absolutely, which crawlers and
+  // social scrapers require -- relative Open Graph images are simply dropped.
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} — what should this cost in Egypt?`,
+    // Per-product pages set their own title; this frames it consistently.
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: [
+    "Egypt prices",
+    "Egypt tourist prices",
+    "how much does water cost in Egypt",
+    "Egypt scam prices",
+    "Cairo prices",
+    "Hurghada prices",
+    "Sharm El-Sheikh prices",
+    "Sahel prices",
+    "أسعار مصر",
+  ],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} — what should this cost in Egypt?`,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    locale: "en",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} — what should this cost in Egypt?`,
+    description: SITE_DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
   manifest: "/manifest.json",
   appleWebApp: { capable: true, title: "Egypt Prices", statusBarStyle: "default" },
 };

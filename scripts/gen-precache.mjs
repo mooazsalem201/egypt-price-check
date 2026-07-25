@@ -25,12 +25,26 @@ function walk(dir) {
   });
 }
 
-const assets = walk(OUT)
+const files = walk(OUT);
+
+const assets = files
   .filter((f) => INCLUDE.test(f) && !EXCLUDE.test(f))
   .map((f) => "/" + relative(OUT, f).split(/[\\/]/).join("/"));
 
-// "/" covers the app shell; Next serves index.html from it.
-const precache = ["/", ...assets].sort();
+// Each per-product page must be cached under the URL it is *served* at
+// ("/price/dasani-15l"), not its file path ("/price/dasani-15l.html") -- the service
+// worker matches on request URL, so caching the filename would never hit and the page
+// would fail offline.
+const routes = files
+  .filter((f) => f.endsWith(".html") && !f.endsWith("404.html"))
+  .map((f) => "/" + relative(OUT, f).split(/[\\/]/).join("/").replace(/\.html$/, ""))
+  .map((route) => (route === "/index" ? "/" : route));
+
+// Only the slashless form. A Next export also writes a price/x/ DIRECTORY of RSC
+// payloads, so precaching "/price/x/" can store a directory response instead of the page.
+// The service worker normalises trailing slashes when matching, which covers hosts that
+// canonicalise the other way.
+const precache = [...new Set(["/", ...assets, ...routes])].sort();
 
 writeFileSync(join(OUT, "precache.json"), JSON.stringify(precache, null, 2) + "\n");
 console.log(`precache manifest: ${precache.length} assets`);

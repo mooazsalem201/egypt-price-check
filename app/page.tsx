@@ -1,4 +1,5 @@
 import PriceChecker from "@/components/PriceChecker";
+import { SiteJsonLd } from "@/components/StructuredData";
 import productsData from "@/data/products.json";
 import zonesData from "@/data/zones.json";
 import type { Zone } from "@/lib/pricing";
@@ -12,6 +13,7 @@ const zones = zonesData as Zone[];
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-50 dark:bg-slate-950">
+      <SiteJsonLd />
       <PriceChecker products={products} zones={zones} />
     </main>
   );
