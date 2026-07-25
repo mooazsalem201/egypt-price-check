@@ -4,7 +4,13 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import Fuse from "fuse.js";
 import ProductCard from "./ProductCard";
 import { usePersisted } from "@/lib/usePersisted";
-import { CURRENCIES, FALLBACK_RATES, getRates, type CurrencyCode } from "@/lib/currency";
+import {
+  CURRENCIES,
+  CURRENCY_GROUPS,
+  FALLBACK_RATES,
+  getRates,
+  type CurrencyCode,
+} from "@/lib/currency";
 import type { Zone } from "@/lib/pricing";
 import type { Product } from "@/lib/types";
 
@@ -97,30 +103,33 @@ export default function PriceChecker({ products, zones }: Props) {
         <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{zone.note}</p>
       </section>
 
-      <section aria-labelledby="currency-heading" className="mb-5">
-        <h2
-          id="currency-heading"
-          className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
+      {/* A dropdown rather than pills: 46 currencies as buttons would fill a phone
+          screen, and a native select is the fastest control to operate one-handed. */}
+      <section className="mb-5">
+        <label
+          htmlFor="currency"
+          className="mb-2 block text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
         >
           Show prices in
-        </h2>
-        <div className="flex flex-wrap gap-2">
-          {CURRENCIES.map((c) => (
-            <button
-              key={c.code}
-              type="button"
-              onClick={() => setCurrency(c.code)}
-              aria-pressed={c.code === currency}
-              className={`rounded-full px-4 py-2.5 text-sm font-medium transition ${
-                c.code === currency
-                  ? "bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
-              }`}
-            >
-              {c.symbol} {c.code}
-            </button>
+        </label>
+        <select
+          id="currency"
+          value={currency}
+          onChange={(event) => setCurrency(event.target.value)}
+          className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base
+                     focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200
+                     dark:border-slate-600 dark:bg-slate-800 dark:text-slate-50"
+        >
+          {CURRENCY_GROUPS.map((group) => (
+            <optgroup key={group} label={group}>
+              {CURRENCIES.filter((c) => c.group === group).map((c) => (
+                <option key={c.code} value={c.code}>
+                  {c.label} ({c.code})
+                </option>
+              ))}
+            </optgroup>
           ))}
-        </div>
+        </select>
       </section>
 
       <div className="sticky top-0 z-10 -mx-4 bg-slate-50/90 px-4 py-3 backdrop-blur dark:bg-slate-950/90">

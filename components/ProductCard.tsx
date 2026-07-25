@@ -46,6 +46,7 @@ export default function ProductCard({ product, zone, currency, rates }: Props) {
   const verdict = hasAsked ? judgePrice(askedNumber, product.baseline_egp, zone) : null;
 
   const money = (egp: number) => formatMoney(convert(egp, currency, rates), currency);
+  const showEgp = currency !== "EGP";
 
   return (
     <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900">
@@ -81,24 +82,26 @@ export default function ProductCard({ product, zone, currency, rates }: Props) {
       </header>
 
       {/* Price bands: the headline answer, readable without any input. */}
+      {/* The EGP figure sits beside the converted one so a tourist knows what to actually
+          hand over. When EGP *is* the chosen currency it would just repeat itself. */}
       <dl className="space-y-2">
         <Band
           tone="fair"
           term="Fair"
           value={`${money(bands.fairLow)} – ${money(bands.fairHigh)}`}
-          egp={`${Math.round(bands.fairLow)}–${Math.round(bands.fairHigh)} EGP`}
+          egp={showEgp ? `${Math.round(bands.fairLow)}–${Math.round(bands.fairHigh)} EGP` : ""}
         />
         <Band
           tone="high"
           term="Pricey"
           value={`up to ${money(bands.highMax)}`}
-          egp={`up to ${Math.round(bands.highMax)} EGP`}
+          egp={showEgp ? `up to ${Math.round(bands.highMax)} EGP` : ""}
         />
         <Band
           tone="over"
           term="Walk away"
           value={`over ${money(bands.highMax)}`}
-          egp={`over ${Math.round(bands.highMax)} EGP`}
+          egp={showEgp ? `over ${Math.round(bands.highMax)} EGP` : ""}
         />
       </dl>
 
@@ -203,9 +206,11 @@ function Band({
         <span className="text-lg font-bold tabular-nums text-slate-900 dark:text-slate-50">
           {value}
         </span>
-        <span className="ml-2 text-sm tabular-nums text-slate-500 dark:text-slate-400">
-          {egp}
-        </span>
+        {egp && (
+          <span className="ml-2 text-sm tabular-nums text-slate-500 dark:text-slate-400">
+            {egp}
+          </span>
+        )}
       </dd>
     </div>
   );
