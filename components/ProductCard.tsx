@@ -57,14 +57,17 @@ export default function ProductCard({ product, zone, currency, rates }: Props) {
           // next/image performs no optimisation here and only adds runtime JS. The photos
           // are already CDN-resized to ~15KB and served from our own origin so they cache
           // offline with everything else.
+          //
+          // 96px, not 64: a tall narrow bottle rendered at 64px is too small to read the
+          // brand off, which defeats the point of showing the packaging at all.
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={product.image}
-            alt=""
-            width={64}
-            height={64}
+            alt={`${product.name} packaging`}
+            width={96}
+            height={96}
             loading="lazy"
-            className="h-16 w-16 shrink-0 rounded-lg bg-white object-contain p-1 ring-1 ring-slate-200 dark:ring-slate-700"
+            className="h-24 w-24 shrink-0 rounded-lg bg-white object-contain p-1.5 ring-1 ring-slate-200 dark:ring-slate-700"
           />
         )}
         <div className="min-w-0">
@@ -148,10 +151,30 @@ export default function ProductCard({ product, zone, currency, rates }: Props) {
         </p>
       </div>
 
-      <footer className="mt-4 text-xs text-slate-400 dark:text-slate-500">
-        Baseline {product.baseline_egp} EGP · {product.source.store} · verified{" "}
-        {product.updated}
-        {zone.source === "estimate" && " · zone markup is an estimate"}
+      <footer className="mt-4 space-y-1.5 text-xs text-slate-400 dark:text-slate-500">
+        <p>
+          Baseline {product.baseline_egp} EGP · verified {product.updated}
+          {zone.source === "estimate" && " · zone markup is an estimate"}
+        </p>
+        {/* The app asks for trust in a number; linking the shop listings makes that
+            number checkable instead. */}
+        {product.sources && product.sources.length > 0 && (
+          <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span>Check the price:</span>
+            {product.sources.map((source) => (
+              <a
+                key={source.store}
+                href={source.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`${source.product} — ${source.price_egp} EGP`}
+                className="underline decoration-dotted underline-offset-2 hover:text-sky-600 dark:hover:text-sky-400"
+              >
+                {source.store} {source.price_egp} EGP
+              </a>
+            ))}
+          </p>
+        )}
       </footer>
     </article>
   );

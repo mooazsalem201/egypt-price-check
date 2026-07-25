@@ -28,12 +28,16 @@ SIZE_RE = re.compile(r"(\d+(?:\.\d+)?)\s*(ml|l|g|kg|gm)\b", re.I)
 PACK_RE = re.compile(r"(?:^|[\s\-])(\d{1,2})\s*(?:\*|x|X)\s*\d|(\d{1,2})\s*PC\b", re.I)
 
 
+BASE = "https://spinneys-egypt.com"
+
+
 @dataclass
 class SpinneysProduct:
     name: str
     price_egp: float
     size: str
     pack_count: int = 1
+    url: str = ""
 
     @property
     def unit_price_egp(self) -> float:
@@ -61,17 +65,23 @@ def search(keyword: str, browser_instance, timeout_ms: int = 45000) -> list[Spin
                   wait_until="networkidle", timeout=timeout_ms)
         # The grid populates after hydration; innerText is empty without this settle time.
         page.wait_for_timeout(3000)
+        # Keep the href alongside the text: the app links back to the source listing so a
+        # tourist (or a maintainer) can verify a price rather than take it on faith.
         rows = page.evaluate(
             """() => Array.from(document.querySelectorAll('a'))
-                 .map(a => (a.innerText || '').trim().replace(/\\n+/g, ' | '))
-                 .filter(t => /EGP/.test(t) && t.length < 200)"""
+                 .map(a => ({
+                   text: (a.innerText || '').trim().replace(/\\n+/g, ' | '),
+                   href: a.getAttribute('href') || ''
+                 }))
+                 .filter(r => /EGP/.test(r.text) && r.text.length < 200)"""
         )
     finally:
         page.close()
 
     products: list[SpinneysProduct] = []
     seen: set[str] = set()
-    for row in rows:
+    for entry in rows:
+        row, href = entry["text"], entry["href"]
         prices = PRICE_RE.findall(row)
         if not prices:
             continue
@@ -90,6 +100,7 @@ def search(keyword: str, browser_instance, timeout_ms: int = 45000) -> list[Spin
                 price_egp=float(prices[-1].replace(",", "")),
                 size=size.group(0).lower() if size else "",
                 pack_count=max(1, pack),
+                url=(BASE + href) if href.startswith("/") else href,
             )
         )
     return products

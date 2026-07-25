@@ -45,5 +45,5 @@ next-env.d.ts
 __pycache__/
 *.pyc
 
-# local claude settings
+# local editor/tool settings
 .claude/
