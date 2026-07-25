@@ -1,15 +1,58 @@
 [
   {
-    "id": "water-600ml",
-    "name": "Water 600ml",
-    "name_ar": "مياه ٦٠٠ مل",
-    "category": "drinks",
-    "baseline_egp": 5.5,
+    "id": "dasani-600ml",
+    "name": "Dasani 600ml",
+    "name_ar": "داساني ٦٠٠ مل",
+    "category": "water",
+    "baseline_egp": 5.99,
+    "image": "",
     "aliases": [
+      "dasani",
       "water",
       "bottle",
-      "small water",
-      "aqua",
+      "small water"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Dasani Natural Drinking Water - 600 ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/still-water/dasani-natural-water-600m/p/104951",
+      "size": "600 ml"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "dasani-15l",
+    "name": "Dasani 1.5L",
+    "name_ar": "داساني ١.٥ لتر",
+    "category": "water",
+    "baseline_egp": 8.99,
+    "image": "",
+    "aliases": [
+      "dasani",
+      "water",
+      "big water",
+      "large water"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Dasani Natural Drinking Water - 1.5 Liter",
+      "url": "https://www.carrefouregypt.com/mafegy/en/still-water/dasani-natural-water-1-5l/p/104950",
+      "size": "1.5 liter"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "water-600ml-local",
+    "name": "Local water 600ml",
+    "name_ar": "مياه محلية ٦٠٠ مل",
+    "category": "water",
+    "baseline_egp": 5.5,
+    "image": "/products/water-600ml-local.jpg",
+    "aliases": [
+      "water",
+      "cheap water",
+      "local water",
+      "aqua delta",
       "safi",
       "maya"
     ],
@@ -22,58 +65,58 @@
     "updated": "2026-07"
   },
   {
-    "id": "water-15l",
-    "name": "Water 1.5L",
-    "name_ar": "مياه ١.٥ لتر",
+    "id": "coke-can",
+    "name": "Coca-Cola can",
+    "name_ar": "كوكاكولا علبة",
     "category": "drinks",
-    "baseline_egp": 8.99,
-    "aliases": [
-      "water",
-      "big water",
-      "dasani",
-      "nestle",
-      "hayat",
-      "baraka"
-    ],
-    "source": {
-      "store": "Carrefour Egypt",
-      "product": "Dasani Natural Drinking Water - 1.5 Liter",
-      "url": "https://www.carrefouregypt.com/mafegy/en/still-water/dasani-natural-water-1-5l/p/104950",
-      "size": "1.5 liter"
-    },
-    "updated": "2026-07"
-  },
-  {
-    "id": "cola-330ml",
-    "name": "Cola can 330ml",
-    "name_ar": "كولا ٣٣٠ مل",
-    "category": "drinks",
-    "baseline_egp": 13.99,
+    "baseline_egp": 14.5,
+    "image": "/products/coke-can.jpg",
     "aliases": [
       "coke",
+      "coca cola",
       "cola",
-      "coca",
-      "pepsi",
       "can"
     ],
     "source": {
       "store": "Carrefour Egypt",
-      "product": "V Cola Super Soda Sparkling Drink - 300 ml",
-      "url": "https://www.carrefouregypt.com/mafegy/en/cola/v-cola-sparking-drink-300-ml/p/626935",
-      "size": "300 ml"
+      "product": "Coca Cola Original Taste Soft Drink Can - 300ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/cola/coca-cola-300ml/p/443516",
+      "size": "300ml"
     },
     "updated": "2026-07"
   },
   {
-    "id": "cola-390ml",
-    "name": "Cola bottle 390ml",
-    "name_ar": "كولا ٣٩٠ مل",
+    "id": "coke-bottle",
+    "name": "Coca-Cola bottle 950ml",
+    "name_ar": "كوكاكولا زجاجة كبيرة",
     "category": "drinks",
-    "baseline_egp": 10.49,
+    "baseline_egp": 24.99,
+    "image": "/products/coke-bottle.jpg",
     "aliases": [
       "coke",
+      "coca cola",
       "cola",
+      "bottle",
+      "big coke"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Coca Cola Original Taste Soft Drink PET Bottle - 950ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/cola/coca-cola-950-ml/p/557033",
+      "size": "950ml"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "pepsi-bottle",
+    "name": "Pepsi bottle",
+    "name_ar": "بيبسي زجاجة",
+    "category": "drinks",
+    "baseline_egp": 10.49,
+    "image": "/products/pepsi-bottle.jpg",
+    "aliases": [
       "pepsi",
+      "cola",
       "soft drink"
     ],
     "source": {
@@ -85,17 +128,58 @@
     "updated": "2026-07"
   },
   {
-    "id": "chips-small",
-    "name": "Potato chips small bag",
-    "name_ar": "شيبسي صغير",
+    "id": "sprite-can",
+    "name": "Sprite can",
+    "name_ar": "سبرايت علبة",
+    "category": "drinks",
+    "baseline_egp": 16.99,
+    "image": "/products/sprite-can.jpg",
+    "aliases": [
+      "sprite",
+      "lemon",
+      "soda"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Sprite Lemon Lime Soda Drink Can - 320ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/lemonade-mixers/sprite-can-320ml/p/633090",
+      "size": "320ml"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "fanta-glass",
+    "name": "Fanta glass bottle",
+    "name_ar": "فانتا زجاج",
+    "category": "drinks",
+    "baseline_egp": 19.99,
+    "image": "/products/fanta-glass.jpg",
+    "aliases": [
+      "fanta",
+      "orange",
+      "soda",
+      "glass bottle"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Fanta Orange Soft Drink Glass Bottle - 330ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/lemonade-mixers/fanta-orange-glass-bottle-330m/p/510290",
+      "size": "330ml"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "chipsy",
+    "name": "Chipsy crisps",
+    "name_ar": "شيبسي",
     "category": "snacks",
     "baseline_egp": 9.99,
+    "image": "/products/chipsy.jpg",
     "aliases": [
+      "chipsy",
       "chips",
       "crisps",
-      "lays",
-      "chipsy",
-      "snack"
+      "lays"
     ],
     "source": {
       "store": "Carrefour Egypt",
@@ -106,41 +190,124 @@
     "updated": "2026-07"
   },
   {
-    "id": "juice-1l",
-    "name": "Juice 1L",
-    "name_ar": "عصير ١ لتر",
-    "category": "drinks",
-    "baseline_egp": 24.49,
+    "id": "doritos",
+    "name": "Doritos",
+    "name_ar": "دوريتوس",
+    "category": "snacks",
+    "baseline_egp": 9.99,
+    "image": "/products/doritos.jpg",
     "aliases": [
-      "juice",
-      "orange juice",
-      "mango",
-      "juhayna"
+      "doritos",
+      "tortilla",
+      "chips",
+      "crisps"
     ],
     "source": {
       "store": "Carrefour Egypt",
-      "product": "Bashayer Guava Juice - 1 Liter",
-      "url": "https://www.carrefouregypt.com/mafegy/en/concentrate-fruit-juice/bashayer-guava-juice-1l/p/468651",
-      "size": "1 liter"
+      "product": "Doritos Flamin Hot Lemon Tortilla Chips - 70 gm",
+      "url": "https://www.carrefouregypt.com/mafegy/en/tortilla/doritos-flaming-hot-lemon-70g/p/654172",
+      "size": "70 gm"
     },
     "updated": "2026-07"
   },
   {
-    "id": "energy-drink",
-    "name": "Energy drink can",
-    "name_ar": "مشروب طاقة",
-    "category": "drinks",
-    "baseline_egp": 11.5,
+    "id": "galaxy-bar",
+    "name": "Galaxy bar",
+    "name_ar": "جالاكسي",
+    "category": "snacks",
+    "baseline_egp": 34.99,
+    "image": "/products/galaxy-bar.jpg",
     "aliases": [
-      "energy",
-      "red bull",
-      "power horse"
+      "galaxy",
+      "chocolate",
+      "bar"
     ],
     "source": {
       "store": "Carrefour Egypt",
-      "product": "Sting Energy Drink - 250 ml",
-      "url": "https://www.carrefouregypt.com/mafegy/en/energy-drinks/sting-energy-drink-pet-250ml/p/599898",
-      "size": "250 ml"
+      "product": "Galaxy Milk Chocolate Bar - 30 gram",
+      "url": "https://www.carrefouregypt.com/mafegy/en/chocolates/galaxy-milk-chocolate-36g/p/251334",
+      "size": "30 gram"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "snickers",
+    "name": "Snickers",
+    "name_ar": "سنيكرز",
+    "category": "snacks",
+    "baseline_egp": 33.33,
+    "image": "/products/snickers.jpg",
+    "aliases": [
+      "snickers",
+      "chocolate",
+      "bar"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Snickers Chocolate with Peanut - 40 gm - 3 Pieces",
+      "url": "https://www.carrefouregypt.com/mafegy/en/chocolate-biscuits/snickers-choco-3p-40g/p/674026",
+      "size": "40 gm"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "kitkat",
+    "name": "KitKat",
+    "name_ar": "كيت كات",
+    "category": "snacks",
+    "baseline_egp": 34.5,
+    "image": "/products/kitkat.jpg",
+    "aliases": [
+      "kitkat",
+      "kit kat",
+      "chocolate",
+      "bar"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Kitkat Chocolate Wafer 4 Fingers - 36.5 gm",
+      "url": "https://www.carrefouregypt.com/mafegy/en/snacking-chocolates/kitkat-4finger-wafer-choco-36-5g/p/390205",
+      "size": "36.5 gm"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "oreo",
+    "name": "Oreo",
+    "name_ar": "أوريو",
+    "category": "snacks",
+    "baseline_egp": 4.99,
+    "image": "/products/oreo.jpg",
+    "aliases": [
+      "oreo",
+      "biscuit",
+      "cookies"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Oreo Biscuit with Vanilla Cream 3 Cookies - 24 gram",
+      "url": "https://www.carrefouregypt.com/mafegy/en/chocolate-cream-biscuits/oreo24g1-2/p/675118",
+      "size": "24 gram"
+    },
+    "updated": "2026-07"
+  },
+  {
+    "id": "redbull",
+    "name": "Red Bull",
+    "name_ar": "ريد بول",
+    "category": "drinks",
+    "baseline_egp": 55.99,
+    "image": "/products/redbull.jpg",
+    "aliases": [
+      "red bull",
+      "energy",
+      "energy drink"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Red Bull Energy Drink - 250ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/energy-drinks/redbull-energy-drink-250m/p/218919",
+      "size": "250ml"
     },
     "updated": "2026-07"
   },
@@ -150,6 +317,7 @@
     "name_ar": "واقي شمس",
     "category": "toiletries",
     "baseline_egp": 189.95,
+    "image": "/products/sunscreen.jpg",
     "aliases": [
       "sunscreen",
       "sunblock",
@@ -171,6 +339,7 @@
     "name_ar": "مناديل جيب",
     "category": "toiletries",
     "baseline_egp": 2.0,
+    "image": "/products/tissues.jpg",
     "aliases": [
       "tissues",
       "kleenex",
@@ -181,65 +350,6 @@
       "product": "Zeina Pocket Tissues - 10 Tissues - 10 Pieces",
       "url": "https://www.carrefouregypt.com/mafegy/en/facial-tissues/zeina-facial-tissues-pocket-10p/p/57759",
       "size": ""
-    },
-    "updated": "2026-07"
-  },
-  {
-    "id": "chocolate-bar",
-    "name": "Chocolate bar",
-    "name_ar": "لوح شوكولاتة",
-    "category": "snacks",
-    "baseline_egp": 5.99,
-    "aliases": [
-      "chocolate",
-      "galaxy",
-      "snickers",
-      "kitkat",
-      "candy"
-    ],
-    "source": {
-      "store": "Carrefour Egypt",
-      "product": "Hmto Chocolate Bar - 23 gram",
-      "url": "https://www.carrefouregypt.com/mafegy/en/snacking-chocolates/hmto-bar-chocolate23g/p/619063",
-      "size": "23 gram"
-    },
-    "updated": "2026-07"
-  },
-  {
-    "id": "biscuits",
-    "name": "Biscuits pack",
-    "name_ar": "بسكويت",
-    "category": "snacks",
-    "baseline_egp": 4.99,
-    "aliases": [
-      "biscuits",
-      "cookies",
-      "oreo"
-    ],
-    "source": {
-      "store": "Carrefour Egypt",
-      "product": "Ulker Tea Biscuits - 12 Biscuits",
-      "url": "https://www.carrefouregypt.com/mafegy/en/assorted-biscuits/ulker-tea-biscuit-12p/p/637030",
-      "size": ""
-    },
-    "updated": "2026-07"
-  },
-  {
-    "id": "instant-coffee",
-    "name": "Instant coffee sachet",
-    "name_ar": "قهوة سريعة",
-    "category": "drinks",
-    "baseline_egp": 3.5,
-    "aliases": [
-      "coffee",
-      "nescafe",
-      "instant coffee"
-    ],
-    "source": {
-      "store": "Carrefour Egypt",
-      "product": "Misr Cafe Instant Coffee Sachet - 2 gram",
-      "url": "https://www.carrefouregypt.com/mafegy/en/ground-coffee/misr-cafe-sachet-2g/p/622345",
-      "size": "2 gram"
     },
     "updated": "2026-07"
   }

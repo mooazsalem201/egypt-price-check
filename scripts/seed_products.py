@@ -9,6 +9,7 @@ Run:  .venv/bin/python scripts/seed_products.py
 
 from __future__ import annotations
 
+import io
 import json
 import re
 import sys
@@ -18,10 +19,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from carrefour import Product, new_session, search  # noqa: E402
+from carrefour import Product, fetch_image_urls, new_session, search  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "products.json"
+IMAGE_DIR = ROOT / "public" / "products"
 
 @dataclass(frozen=True)
 class Item:
@@ -44,26 +46,76 @@ class Item:
     # Most items are sold singly, but some are only sold in multipacks whose *unit* is the
     # thing a tourist buys -- one pocket tissue pack out of a strip of ten.
     max_pack: int = 3
+    # Brand-level exclusion for line extensions that share the brand name but are a
+    # different product -- "Galaxy Flutes" wafer rolls are not a Galaxy chocolate bar.
+    exclude: str = ""
+    # Photo handling. "" picks automatically; "-" means Carrefour has no usable packshot
+    # for this product, so show nothing rather than a misleading image. No heuristic can
+    # tell a mineral-composition table from a bottle reliably, so the few bad cases are
+    # curated by eye instead of guessed at.
+    image_url: str = ""
 
 
+# Entries are brand-specific on purpose. A generic "water 600ml" baseline taken from the
+# cheapest local brand makes an Aquafina look overcharged when it is fairly priced, so
+# each entry pins one brand at one size -- matching the photo the tourist is holding.
 CATALOGUE = [
-    Item("water-600ml", "Water 600ml", "مياه ٦٠٠ مل", "drinks", "water",
-         r"water", (500, 700), 40,
-         ["water", "bottle", "small water", "aqua", "safi", "maya"]),
-    Item("water-15l", "Water 1.5L", "مياه ١.٥ لتر", "drinks", "drinking water 1.5 liter",
-         r"water", (1400, 1600), 60,
-         ["water", "big water", "dasani", "nestle", "hayat", "baraka"]),
-    Item("cola-330ml", "Cola can 330ml", "كولا ٣٣٠ مل", "drinks", "coca cola can",
-         r"cola", (300, 360), 60, ["coke", "cola", "coca", "pepsi", "can"]),
-    Item("cola-390ml", "Cola bottle 390ml", "كولا ٣٩٠ مل", "drinks", "coca cola bottle",
-         r"cola", (380, 400), 60, ["coke", "cola", "pepsi", "soft drink"]),
-    Item("chips-small", "Potato chips small bag", "شيبسي صغير", "snacks",
-         "chipsy potato chips", r"chips|chipsy", (20, 80), 60,
-         ["chips", "crisps", "lays", "chipsy", "snack"]),
-    Item("juice-1l", "Juice 1L", "عصير ١ لتر", "drinks", "juice 1 liter",
-         r"juice", (900, 1100), 120, ["juice", "orange juice", "mango", "juhayna"]),
-    Item("energy-drink", "Energy drink can", "مشروب طاقة", "drinks", "red bull energy",
-         r"energy", (240, 500), 120, ["energy", "red bull", "power horse"]),
+    # --- Water ---
+    # Aquafina 600ml was dropped: Carrefour delisted it mid-development (only a 250ml
+    # sparkling can remains), and it had no packshot either.
+    # Carrefour holds no packshot for either Dasani -- only a blue mineral-composition
+    # table, which tells a tourist nothing. Better no image than one that looks like a
+    # completely different product.
+    Item("dasani-600ml", "Dasani 600ml", "داساني ٦٠٠ مل", "water", "dasani water",
+         r"dasani", (500, 700), 40, ["dasani", "water", "bottle", "small water"],
+         image_url="-"),
+    Item("dasani-15l", "Dasani 1.5L", "داساني ١.٥ لتر", "water", "dasani water 1.5 liter",
+         r"dasani", (1400, 1600), 60, ["dasani", "water", "big water", "large water"],
+         image_url="-"),
+    Item("water-600ml-local", "Local water 600ml", "مياه محلية ٦٠٠ مل", "water",
+         "drinking water 600ml", r"water", (500, 700), 40,
+         ["water", "cheap water", "local water", "aqua delta", "safi", "maya"]),
+
+    # --- Soft drinks ---
+    Item("coke-can", "Coca-Cola can", "كوكاكولا علبة", "drinks", "coca cola can",
+         r"coca cola", (300, 360), 60, ["coke", "coca cola", "cola", "can"]),
+    # Carrefour stocks Coke PET only in 950ml and 2.45L online -- there is no 390ml, so
+    # the large bottle is the entry rather than inventing a size that is not sold.
+    Item("coke-bottle", "Coca-Cola bottle 950ml", "كوكاكولا زجاجة كبيرة", "drinks",
+         "coca cola pet bottle", r"coca cola", (900, 1000), 60,
+         ["coke", "coca cola", "cola", "bottle", "big coke"]),
+    Item("pepsi-bottle", "Pepsi bottle", "بيبسي زجاجة", "drinks", "pepsi bottle",
+         r"pepsi", (380, 400), 60, ["pepsi", "cola", "soft drink"]),
+    Item("sprite-can", "Sprite can", "سبرايت علبة", "drinks", "sprite can",
+         r"sprite", (300, 360), 60, ["sprite", "lemon", "soda"]),
+    # The 330ml glass bottle rather than the PET: it is the classic Egyptian kiosk
+    # purchase, and unlike the PET listing it has a real product photo.
+    Item("fanta-glass", "Fanta glass bottle", "فانتا زجاج", "drinks", "fanta can",
+         r"fanta.*glass", (320, 340), 60, ["fanta", "orange", "soda", "glass bottle"]),
+
+    # --- Snacks ---
+    Item("chipsy", "Chipsy crisps", "شيبسي", "snacks", "chipsy potato chips",
+         r"chipsy", (20, 80), 60, ["chipsy", "chips", "crisps", "lays"]),
+    Item("doritos", "Doritos", "دوريتوس", "snacks", "doritos",
+         r"doritos", (20, 90), 60, ["doritos", "tortilla", "chips", "crisps"]),
+
+    # --- Chocolate. Size window excludes the 22g "wafer roll" variants, which are a
+    # different product from the chocolate bar a tourist means. ---
+    Item("galaxy-bar", "Galaxy bar", "جالاكسي", "snacks", "galaxy chocolate bar",
+         r"galaxy", (30, 120), 80, ["galaxy", "chocolate", "bar"],
+         exclude=r"flute|wafer|biscuit|drink|spread"),
+    Item("snickers", "Snickers", "سنيكرز", "snacks", "snickers chocolate",
+         r"snickers", (30, 120), 80, ["snickers", "chocolate", "bar"]),
+    Item("kitkat", "KitKat", "كيت كات", "snacks", "kitkat chocolate",
+         r"kitkat|kit kat", (30, 120), 80, ["kitkat", "kit kat", "chocolate", "bar"]),
+
+    # --- Biscuits ---
+    Item("oreo", "Oreo", "أوريو", "snacks", "oreo biscuit",
+         r"oreo", None, 40, ["oreo", "biscuit", "cookies"]),
+
+    # --- Other ---
+    Item("redbull", "Red Bull", "ريد بول", "drinks", "red bull energy drink",
+         r"red bull", (240, 360), 120, ["red bull", "energy", "energy drink"]),
     # Sunscreen really does cost this much in Egypt -- the cheapest Carrefour stocks is
     # ~190 EGP and the range runs to 380. The high ceiling is correct, not a loose filter.
     Item("sunscreen", "Sunscreen SPF 50", "واقي شمس", "toiletries", "sunscreen spf",
@@ -72,14 +124,6 @@ CATALOGUE = [
     # Sold as a strip of ten packs; the unit a tourist buys is one pack, hence max_pack=12.
     Item("tissues", "Pocket tissues", "مناديل جيب", "toiletries", "pocket tissues",
          r"pocket tissue", None, 20, ["tissues", "kleenex", "napkins"], max_pack=12),
-    Item("chocolate-bar", "Chocolate bar", "لوح شوكولاتة", "snacks", "chocolate bar",
-         r"chocolate", (20, 100), 80,
-         ["chocolate", "galaxy", "snickers", "kitkat", "candy"]),
-    Item("biscuits", "Biscuits pack", "بسكويت", "snacks", "biscuit",
-         r"biscuit", None, 60, ["biscuits", "cookies", "oreo"]),
-    Item("instant-coffee", "Instant coffee sachet", "قهوة سريعة", "drinks",
-         "nescafe sachet", r"coffee|nescafe", None, 60,
-         ["coffee", "nescafe", "instant coffee"]),
 ]
 
 SIZE_PARSE_RE = re.compile(
@@ -123,12 +167,107 @@ def pick(products: list[Product], item: Item) -> Product | None:
             continue
         if not pattern.search(p.name) or EXCLUDE_RE.search(p.name):
             continue
+        if item.exclude and re.search(item.exclude, p.name, re.I):
+            continue
         if item.size_range:
             value = size_value(p.size)
             if value is None or not (item.size_range[0] <= value <= item.size_range[1]):
                 continue
         candidates.append(p)
     return min(candidates, key=lambda p: p.unit_price_egp) if candidates else None
+
+
+def _extension_for(body: bytes) -> str:
+    """File extension implied by the magic bytes, so the name never lies about the format."""
+    if body.startswith(b"\xff\xd8\xff"):
+        return ".jpg"
+    if body.startswith(b"\x89PNG\r\n\x1a\n"):
+        return ".png"
+    if body[:4] == b"RIFF" and body[8:12] == b"WEBP":
+        return ".webp"
+    if body[4:8] == b"ftyp":  # ISO base media: AVIF/HEIF
+        return ".avif"
+    return ""
+
+
+def packshot_score(body: bytes) -> float:
+    """How much an image looks like a product shot rather than an information panel.
+
+    Carrefour's photo numbering is unreliable -- for Aquafina and Dasani the first image
+    is a mineral-composition table, and for Fanta a barcode strip. Those are useless for
+    recognising the bottle in your hand.
+
+    Product shots are cut out on a white studio background, so their border pixels are
+    near-white; tables and labels are solid colour to the edge. Scoring the border
+    separates them without needing to understand the image.
+    """
+    try:
+        from PIL import Image
+    except ImportError:
+        return 0.5  # Pillow unavailable: accept whatever came first
+
+    with Image.open(io.BytesIO(body)) as im:
+        im = im.convert("RGB")
+        width, height = im.size
+        if not width or not height:
+            return 0.0
+        pixels = im.load()
+        step = max(1, min(width, height) // 40)
+        edge, white = 0, 0
+        for x in range(0, width, step):
+            for y in (0, height - 1):
+                r, g, b = pixels[x, y]
+                edge += 1
+                white += min(r, g, b) > 235
+        for y in range(0, height, step):
+            for x in (0, width - 1):
+                r, g, b = pixels[x, y]
+                edge += 1
+                white += min(r, g, b) > 235
+    return white / edge if edge else 0.0
+
+
+def save_image(item_id: str, product: Product, session, image_url: str = "") -> str:
+    """Download the product photo into public/ and return its site-relative path.
+
+    Images are committed rather than hotlinked from Carrefour's CDN: a third-party
+    request would break the offline mode the whole app depends on, and would leave the
+    site's appearance at the mercy of someone else's URL structure.
+    """
+    if image_url == "-":
+        return ""  # curated: Carrefour has no usable packshot for this product
+    try:
+        urls = [image_url] if image_url else fetch_image_urls(product, session)[:4]
+        best: tuple[float, bytes, str] | None = None
+        for url in urls:
+            # Carrefour's CDN content-negotiates on Accept. Impersonating Chrome advertises
+            # AVIF, which silently yields AVIF bytes we would then save under a .jpg name.
+            # Ask for JPEG explicitly so the extension matches the content.
+            response = session.get(
+                url, timeout=45, headers={"Accept": "image/jpeg,image/png"}
+            )
+            if not response.ok:
+                continue
+            body = response.content
+            if not body or len(body) < 500:
+                continue  # placeholder or error page rather than a real photo
+            suffix = _extension_for(body)
+            if not suffix:
+                continue
+            score = packshot_score(body)
+            if best is None or score > best[0]:
+                best = (score, body, suffix)
+            if score >= 0.9:
+                break  # clean packshot; no need to look at the rest
+
+        if best is None:
+            return ""
+        IMAGE_DIR.mkdir(parents=True, exist_ok=True)
+        (IMAGE_DIR / f"{item_id}{best[2]}").write_bytes(best[1])
+        return f"/products/{item_id}{best[2]}"
+    except Exception as exc:  # noqa: BLE001 - a missing photo must not fail the seed
+        print(f"     (no image for {item_id}: {exc})", file=sys.stderr)
+        return ""
 
 
 def main() -> int:
@@ -156,6 +295,7 @@ def main() -> int:
             "name_ar": item.name_ar,
             "category": item.category,
             "baseline_egp": chosen.unit_price_egp,
+            "image": save_image(item.id, chosen, session, item.image_url),
             "aliases": item.aliases,
             "source": {
                 "store": "Carrefour Egypt",
@@ -170,6 +310,9 @@ def main() -> int:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(entries, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"\nwrote {len(entries)} products -> {OUT.relative_to(ROOT)}")
+
+    # The offline precache manifest is generated from the real build output by
+    # scripts/gen-precache.mjs, since asset filenames are content-hashed at build time.
     return 0 if entries else 1
 
 

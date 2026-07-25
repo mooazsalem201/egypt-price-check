@@ -49,11 +49,32 @@ export default function ProductCard({ product, zone, currency, rates }: Props) {
 
   return (
     <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-      <header className="mb-4">
-        <h2 className="text-xl font-bold text-slate-900 dark:text-slate-50">{product.name}</h2>
-        <p className="text-sm text-slate-500 dark:text-slate-400" dir="rtl" lang="ar">
-          {product.name_ar}
-        </p>
+      {/* The photo is the fastest way to confirm this is the item in your hand -- brands
+          and packaging differ, and so do their fair prices. */}
+      <header className="mb-4 flex items-start gap-3">
+        {product.image && (
+          // Plain <img> on purpose: this is a static export with images.unoptimized, so
+          // next/image performs no optimisation here and only adds runtime JS. The photos
+          // are already CDN-resized to ~15KB and served from our own origin so they cache
+          // offline with everything else.
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={product.image}
+            alt=""
+            width={64}
+            height={64}
+            loading="lazy"
+            className="h-16 w-16 shrink-0 rounded-lg bg-white object-contain p-1 ring-1 ring-slate-200 dark:ring-slate-700"
+          />
+        )}
+        <div className="min-w-0">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-slate-50">
+            {product.name}
+          </h2>
+          <p className="text-sm text-slate-500 dark:text-slate-400" dir="rtl" lang="ar">
+            {product.name_ar}
+          </p>
+        </div>
       </header>
 
       {/* Price bands: the headline answer, readable without any input. */}

@@ -2,3 +2,4 @@
 # Bot Manager, which fingerprints the TLS handshake itself -- plain requests/Scrapy/curl
 # all receive a 53-byte empty stub no matter what headers they send.
 curl_cffi>=0.7
+pillow>=10

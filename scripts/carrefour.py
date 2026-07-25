@@ -31,6 +31,18 @@ IMPERSONATE = "chrome124"
 PRICE_RE = re.compile(r"(?<!\d)(\d{1,5})\s*\.\s*(\d{2})\s*EGP")
 PRODUCT_SPLIT_RE = re.compile(r'(?=href="/mafegy/en/[^"]*?/p/\d+)')
 PRODUCT_HREF_RE = re.compile(r'href="(/mafegy/en/[^"]*?/p/(\d+))')
+
+# Product photos live on Carrefour's CDN under two shapes. Listing pages use
+# "sys-master-root/…/533152_2.jpg" keyed by the listing product id; product pages use the
+# canonical "pim-content/…/626935_main.jpg" keyed by a different PIM id. Pairing by
+# filename prefix is the only reliable link on listings, because the <img> sits before the
+# product link in the DOM and so falls outside the tile split.
+IMAGE_RE = re.compile(
+    r"https://cdn\.mafrservices\.com/sys-master-root/[^\"\s\\]+?/(\d+)_\d+\.(?:jpg|jpeg|png|webp)[^\"\s\\]*"
+)
+MAIN_IMAGE_RE = re.compile(
+    r"https://cdn\.mafrservices\.com/pim-content/[^\"\s\\]+?_main\.(?:jpg|jpeg|png|webp)[^\"\s\\]*"
+)
 # Multipacks are labelled several ways: "x Pack of 12", "- 12 Pieces", "- 20 Bottles".
 # Missing one makes a 12-pack look like a single item and understates the unit price.
 PACK_RE = re.compile(
@@ -57,6 +69,7 @@ class Product:
     pack_count: int
     unit_price_egp: float
     size: str
+    image_url: str = ""
 
     def as_dict(self) -> dict:
         return asdict(self)
@@ -88,10 +101,19 @@ def _extract_name(text: str, slug: str) -> str:
     return slug.replace("-", " ").title()
 
 
+def _image_map(html: str) -> dict[str, str]:
+    """Map product id -> first CDN image URL, taken across the whole page."""
+    images: dict[str, str] = {}
+    for match in IMAGE_RE.finditer(html):
+        images.setdefault(match.group(1), match.group(0).rstrip("\\"))
+    return images
+
+
 def parse_search_html(html: str) -> list[Product]:
     """Parse a rendered Carrefour search page into products with per-unit prices."""
     products: list[Product] = []
     seen: set[str] = set()
+    images = _image_map(html)
 
     for tile in PRODUCT_SPLIT_RE.split(html)[1:]:
         href_match = PRODUCT_HREF_RE.match(tile)
@@ -127,6 +149,7 @@ def parse_search_html(html: str) -> list[Product]:
                 # what the app compares a kiosk quote against.
                 unit_price_egp=round(price / pack, 2),
                 size=size_match.group(0).lower() if size_match else "",
+                image_url=images.get(product_id, ""),
             )
         )
 
@@ -148,3 +171,48 @@ def search(keyword: str, session: requests.Session | None = None) -> list[Produc
 
 def new_session() -> requests.Session:
     return requests.Session(impersonate=IMPERSONATE)
+
+
+def _image_suffix(url: str) -> int:
+    """The "_N" index of a CDN photo; lower means the primary packaging shot."""
+    match = re.search(r"_(\d+)\.(?:jpg|jpeg|png|webp)", url)
+    return int(match.group(1)) if match else 99
+
+
+def fetch_image_url(product: Product, session: requests.Session, width: int = 400) -> str:
+    """Best image URL for a product, fetching its detail page if the listing lacked one.
+
+    Listing pages lazy-load images, so only the products above the fold carry a real
+    `src`. The detail page always has the canonical `_main` photo.
+    """
+    urls = fetch_image_urls(product, session, width)
+    return urls[0] if urls else ""
+
+
+def fetch_image_urls(
+    product: Product, session: requests.Session, width: int = 400
+) -> list[str]:
+    """All candidate photo URLs for a product, best-guess first.
+
+    A product carries several shots and the numbering is not dependable: for some items
+    "_1" is the packaging, for others (Aquafina, Dasani) it is a mineral-composition table
+    that tells a tourist nothing. Callers pick between them by inspecting the images.
+    """
+    page = session.get(product.url, timeout=45).text
+
+    candidates = [m.group(0).rstrip("\\") for m in MAIN_IMAGE_RE.finditer(page)]
+    candidates += sorted(
+        {m.group(0).rstrip("\\") for m in IMAGE_RE.finditer(page)}, key=_image_suffix
+    )
+    if product.image_url:
+        candidates.append(product.image_url)
+
+    seen: set[str] = set()
+    out: list[str] = []
+    for url in candidates:
+        # The CDN resizes server-side; ask for the display size, not a 2MB original.
+        sized = re.sub(r"\?im=Resize=\d+", "", url) + f"?im=Resize={width}"
+        if sized not in seen:
+            seen.add(sized)
+            out.append(sized)
+    return out
