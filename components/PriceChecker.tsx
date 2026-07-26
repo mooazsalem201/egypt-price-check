@@ -96,8 +96,8 @@ export default function PriceChecker({ products, zones }: Props) {
                      dark:border-slate-600 dark:bg-slate-800 dark:text-slate-50"
         />
 
-        <div className="grid grid-cols-2 gap-2">
-          <div>
+        <div className="flex flex-wrap gap-2">
+          <div className="min-w-[9rem] flex-1">
             <label htmlFor="zone" className="sr-only">
               Where are you?
             </label>
@@ -117,7 +117,7 @@ export default function PriceChecker({ products, zones }: Props) {
             </select>
           </div>
 
-          <div>
+          <div className="min-w-[9rem] flex-1">
             <label htmlFor="currency" className="sr-only">
               Show prices in
             </label>

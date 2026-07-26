@@ -205,12 +205,12 @@ function Band({
   const dot =
     tone === "fair" ? "bg-emerald-500" : tone === "high" ? "bg-amber-500" : "bg-rose-500";
   return (
-    <div className="flex items-baseline justify-between gap-3">
+    <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
       <dt className="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400">
         <span className={`h-2.5 w-2.5 rounded-full ${dot}`} aria-hidden="true" />
         {term}
       </dt>
-      <dd className="text-right">
+      <dd className="ml-auto text-right">
         <span className="text-lg font-bold tabular-nums text-slate-900 dark:text-slate-50">
           {value}
         </span>

@@ -16,6 +16,25 @@
   color-scheme: light dark;
 }
 
+/*
+ * Samsung Internet (and Android accessibility settings) can scale text well past 150%
+ * while leaving container widths alone. Long product names then push past their box and
+ * the whole page gains a horizontal scrollbar.
+ *
+ * Breaking inside words is ugly but strictly better than clipped or unreachable text, and
+ * it only engages when a word genuinely cannot fit.
+ */
+body {
+  overflow-wrap: break-word;
+}
+
+/* Never let anything force the page wider than the screen, whatever the text size. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

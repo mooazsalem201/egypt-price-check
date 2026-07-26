@@ -56,8 +56,8 @@ export default function ProductPage({ product, zones }: Props) {
 
       {/* Same compact pair as the home page. Wrapped pills cost four rows on a phone, and
           both selects stay at 16px so iOS does not zoom the viewport on focus. */}
-      <div className="mb-5 grid grid-cols-2 gap-2">
-        <div>
+      <div className="mb-5 flex flex-wrap gap-2">
+        <div className="min-w-[9rem] flex-1">
           <label htmlFor="zone" className="sr-only">
             Where are you?
           </label>
@@ -77,7 +77,7 @@ export default function ProductPage({ product, zones }: Props) {
           </select>
         </div>
 
-        <div>
+        <div className="min-w-[9rem] flex-1">
           <label htmlFor="currency" className="sr-only">
             Show prices in
           </label>
