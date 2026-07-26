@@ -3,6 +3,17 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /*
+   * Declares that this page styles both themes itself.
+   *
+   * Without it, browsers treat the page as light-only and "helpfully" invert it when the
+   * user has dark mode on -- Samsung Internet in particular applies an aggressive
+   * force-dark filter. Layered over our own dark: styles that produces muddy, half
+   * inverted colours and washed-out text. Declaring support turns the filter off and
+   * hands theming back to the stylesheet.
+   */
+  color-scheme: light dark;
 }
 
 @theme inline {

@@ -55,6 +55,9 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  // Emitted before stylesheets load, so a browser never gets a chance to decide the page
+  // is light-only and apply its own force-dark filter.
+  colorScheme: "light dark",
   themeColor: "#0284c7",
   width: "device-width",
   initialScale: 1,

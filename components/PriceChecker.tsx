@@ -145,7 +145,7 @@ export default function PriceChecker({ products, zones }: Props) {
 
       <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{zone.note}</p>
 
-      <div className="mt-4 space-y-4">
+      <div className="mt-3 space-y-3">
         {results.length === 0 ? (
           <p className="rounded-2xl border border-dashed border-slate-300 p-8 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
             Nothing matches &ldquo;{query}&rdquo;. Try &ldquo;water&rdquo; or

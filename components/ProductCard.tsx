@@ -59,10 +59,10 @@ export default function ProductCard({
   const showEgp = currency !== "EGP";
 
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+    <article className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900">
       {/* The photo is the fastest way to confirm this is the item in your hand -- brands
           and packaging differ, and so do their fair prices. */}
-      <header className="mb-4 flex items-start gap-3">
+      <header className="mb-3 flex items-start gap-3">
         {product.image && (
           <ProductImage src={product.image} alt={product.source.product} />
         )}
@@ -92,7 +92,7 @@ export default function ProductCard({
       {/* Price bands: the headline answer, readable without any input. */}
       {/* The EGP figure sits beside the converted one so a tourist knows what to actually
           hand over. When EGP *is* the chosen currency it would just repeat itself. */}
-      <dl className="space-y-2">
+      <dl className="space-y-1.5">
         <Band
           tone="fair"
           term="Fair"
@@ -114,7 +114,7 @@ export default function ProductCard({
       </dl>
 
       {/* Optional price check. Purely local arithmetic -- nothing is sent anywhere. */}
-      <div className="mt-5 border-t border-slate-200 pt-4 dark:border-slate-700">
+      <div className="mt-4 border-t border-slate-200 pt-3 dark:border-slate-700">
         <label
           htmlFor={`asked-${product.id}`}
           className="block text-sm font-medium text-slate-700 dark:text-slate-300"
@@ -130,7 +130,7 @@ export default function ProductCard({
             value={asked}
             onChange={(event) => setAsked(event.target.value)}
             placeholder="0"
-            className="w-28 rounded-xl border border-slate-300 px-3 py-3 text-lg tabular-nums
+            className="w-24 rounded-xl border border-slate-300 px-3 py-2.5 text-base tabular-nums
                        focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200
                        dark:border-slate-600 dark:bg-slate-800 dark:text-slate-50"
           />
@@ -162,7 +162,7 @@ export default function ProductCard({
         </p>
       </div>
 
-      <footer className="mt-4 space-y-1.5 text-xs text-slate-400 dark:text-slate-500">
+      <footer className="mt-3 space-y-1 text-xs text-slate-400 dark:text-slate-500">
         <p>
           Baseline {product.baseline_egp} EGP · verified {product.updated}
           {zone.source === "estimate" && " · zone markup is an estimate"}
