@@ -97,6 +97,11 @@ def _scrape_category(slug: str, browser_instance, page_no: int = 1, timeout_ms: 
         name = " ".join(name_parts).strip()
         if not name:
             continue
+        # El Far prefixes unavailable items with their status, which would otherwise end
+        # up in the product name and, worse, be offered as a price reference for something
+        # nobody can buy.
+        if re.match(r"^\s*out of stock\b", name, re.I):
+            continue
         pack_match = PACK_RE.search(name)
         pack = int(next(g for g in pack_match.groups() if g)) if pack_match else 1
         size = SIZE_RE.search(name)

@@ -27,10 +27,10 @@
         "price_egp": 5.99
       },
       {
-        "store": "Mahmoud El Far",
-        "product": "Dasani Mineral Water 600 Ml 20 Pieces",
-        "url": "https://mahmoudelfar.com/products/%D8%AF%D8%B3%D8%A7%D9%86%D9%89-%D9%85%D9%8A%D8%A7%D8%A9-%D9%85%D8%B9%D8%AF%D9%86%D9%8A%D8%A9-600%D9%85%D9%84%D9%84%D9%89*18+2",
-        "price_egp": 5.6
+        "store": "Spinneys",
+        "product": "Dasani Mineral Water- 600 Ml",
+        "url": "https://spinneys-egypt.com/en/dasany-mineral-water-600-ml",
+        "price_egp": 5.95
       }
     ]
   },
@@ -60,18 +60,6 @@
         "product": "Dasani Natural Drinking Water - 1.5 Liter",
         "url": "https://www.carrefouregypt.com/mafegy/en/still-water/dasani-natural-water-1-5l/p/104950?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 8.99
-      },
-      {
-        "store": "Spinneys",
-        "product": "Dasani Mineral Water - 1.5 L",
-        "url": "https://spinneys-egypt.com/en/dasany-mineral-water-1-5-l",
-        "price_egp": 9.95
-      },
-      {
-        "store": "Mahmoud El Far",
-        "product": "Dasani Mineral Water 600 Ml 20 Pieces",
-        "url": "https://mahmoudelfar.com/products/%D8%AF%D8%B3%D8%A7%D9%86%D9%89-%D9%85%D9%8A%D8%A7%D8%A9-%D9%85%D8%B9%D8%AF%D9%86%D9%8A%D8%A9-600%D9%85%D9%84%D9%84%D9%89*18+2",
-        "price_egp": 5.6
       }
     ]
   },
@@ -284,12 +272,6 @@
         "product": "Chipsy Potato Chips with Sweet Chili - 63-73G",
         "url": "https://spinneys-egypt.com/en/chipsy-potato-chips-sweet-chili-63-73g",
         "price_egp": 7.0
-      },
-      {
-        "store": "Mahmoud El Far",
-        "product": "100.00 gm Lay's Chipsy Stacks Original 100 gm",
-        "url": "https://mahmoudelfar.com/products/%D9%84%D8%A7%D9%8A%D8%B2-%D8%B4%D9%8A%D8%A8%D8%B3%D9%89-%D8%B3%D8%AA%D8%A7%D9%83%D8%B3-%D8%A7%D9%88%D8%B1%D8%AC%D9%8A%D9%86%D8%A7%D9%84-100-%D8%AC%D9%85-8850718803347",
-        "price_egp": 174.95
       }
     ]
   },
@@ -434,12 +416,6 @@
         "product": "KITKAT - KCHUNKY WAFER W/MILK CHOCO&WAFFLE PIECES+VANI.ICE. - 44G",
         "url": "https://spinneys-egypt.com/en/kitkat-kchunky-wafer-w-milk-choco-waffle-pieces-vani-ice-44g",
         "price_egp": 37.95
-      },
-      {
-        "store": "Mahmoud El Far",
-        "product": "415.00 gm Kit Kat Milk Chocolate Covered Biscuits 415 Gm",
-        "url": "https://mahmoudelfar.com/products/%D9%83%D9%8A%D8%AA-%D9%83%D8%A7%D8%AA-%D8%A8%D8%B3%D9%83%D9%88%D9%8A%D8%AA-%D9%85%D8%BA%D8%B7%D9%8A-%D8%A8%D8%A7%D9%84%D8%B4%D9%88%D9%83%D9%88%D9%84%D8%A7%D8%AA%D8%A9-%D8%A8%D8%A7%D9%84%D8%AD%D9%84%D9%8A%D8%A8-415-%D8%AC%D9%85-7613035366749",
-        "price_egp": 500.0
       }
     ]
   },
@@ -471,8 +447,8 @@
       },
       {
         "store": "Spinneys",
-        "product": "OREO - COCOA BISCUIT FILLED W/ VANILLA CREAM - 10PC",
-        "url": "https://spinneys-egypt.com/en/oreo-cocoa-biscuit-filled-w-vanilla-cream-10pc-467831",
+        "product": "OREO - COCOA BISCUIT FILLED W/ CHOCOLATE CREAM - 10PC",
+        "url": "https://spinneys-egypt.com/en/oreo-cocoa-biscuit-filled-w-chocolate-cream-10pc-467832",
         "price_egp": 1.5
       }
     ]
@@ -502,12 +478,6 @@
         "product": "Red Bull Energy Drink - 250ml",
         "url": "https://www.carrefouregypt.com/mafegy/en/energy-drinks/redbull-energy-drink-250m/p/218919?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 55.99
-      },
-      {
-        "store": "Spinneys",
-        "product": "Red Bull Energy Drink - 250 Ml",
-        "url": "https://spinneys-egypt.com/en/red-bull-energy-drink-250-ml",
-        "price_egp": 55.95
       },
       {
         "store": "Mahmoud El Far",
@@ -546,16 +516,10 @@
         "price_egp": 189.95
       },
       {
-        "store": "Spinneys",
-        "product": "Kamena Sunscreen Cream Spf 35 - 150 Ml",
-        "url": "https://spinneys-egypt.com/en/kamena-sunscreen-cream-spf-35-150-ml",
-        "price_egp": 349.95
-      },
-      {
         "store": "Mahmoud El Far",
-        "product": "Carroten Coconut Dreams Sun Care Invisible Spray Spf 50 - 200 Ml",
-        "url": "https://mahmoudelfar.com/products/%D9%83%D8%A7%D8%B1%D9%88%D8%AA%D9%8A%D9%86-%D8%B3%D8%A8%D8%B1%D8%A7%D9%8A-%D8%AD%D9%85%D8%A7%D9%8A%D8%A9-%D9%85%D9%86-%D8%A7%D9%84%D8%B4%D9%85%D8%B3-%D8%BA%D9%8A%D8%B1-%D9%85%D8%B1%D8%A6%D9%8A-%D8%A8%D8%A3%D8%AD%D9%84%D8%A7%D9%85-%D8%AC%D9%88%D8%B2-%D8%A7%D9%84%D9%87%D9%86%D8%AF-%D8%A8%D9%85%D8%B9%D8%A7%D9%85%D9%84-%D8%AD%D9%85%D8%A7%D9%8A%D8%A9-50-200-%D9%85%D9%84-5201314180692",
-        "price_egp": 975.0
+        "product": "Momento Protection Spf 50 - 250 Ml",
+        "url": "https://mahmoudelfar.com/products/%D9%85%D9%88%D9%85%D9%8A%D9%86%D8%AA%D9%88-%D9%84%D9%88%D8%B4%D9%86-%D8%AD%D9%85%D8%A7%D9%8A%D8%A9-50-250-%D9%85%D9%84-6223013450523",
+        "price_egp": 425.0
       }
     ]
   },

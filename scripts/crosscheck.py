@@ -29,28 +29,35 @@ DISAGREEMENT = 0.40
 SIZE_TOLERANCE = 0.25
 
 
-def best_match(products, item):
-    """Closest Spinneys product to a catalogue item, preferring the nearest size.
+def ranked_matches(products, item):
+    """Candidate products for a catalogue item, best first.
 
-    Picking the cheapest match compares a 4-finger KitKat against a 2-finger one and
-    reports a 45% "disagreement" that is really just a smaller bar. Choosing the closest
-    size first, then comparing per gram, removes that whole class of false alarm.
+    Ordering by nearest size rather than cheapest matters: the cheapest match compares a
+    4-finger KitKat against a 2-finger one and reports a 45% "disagreement" that is really
+    just a smaller bar. Returning the full ranking (not just the winner) lets callers fall
+    through when the best candidate turns out to have a dead product link.
     """
     pattern = re.compile(item.match, re.I)
     candidates = [p for p in products if pattern.search(p.name)]
     if item.exclude:
         candidates = [p for p in candidates if not re.search(item.exclude, p.name, re.I)]
     if not candidates:
-        return None
+        return []
 
     if item.size_range:
         target = sum(item.size_range) / 2
         sized = [(p, size_value(p.size)) for p in candidates]
         sized = [(p, v) for p, v in sized if v]
         if sized:
-            return min(sized, key=lambda pair: abs(pair[1] - target))[0]
+            return [p for p, _ in sorted(sized, key=lambda pair: abs(pair[1] - target))]
 
-    return min(candidates, key=lambda p: p.unit_price_egp)
+    return sorted(candidates, key=lambda p: p.unit_price_egp)
+
+
+def best_match(products, item):
+    """Single closest product, or None."""
+    ranked = ranked_matches(products, item)
+    return ranked[0] if ranked else None
 
 
 def main() -> int:
