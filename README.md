@@ -53,10 +53,19 @@ Two Carrefour quirks worth knowing before editing the scraper:
   during development. Each chosen product is stock-checked before being committed, and the
   seeder steps down to the next cheapest candidate when one is unavailable.
 
-## Zone multipliers are estimates
+## Zone multipliers
 
-`data/zones.json` scales the Cairo baseline by region. **Only the Cairo baseline is
-measured.** The regional multipliers are informed estimates.
+`data/zones.json` scales the Cairo baseline by region. Each carries a `source`:
+
+- `measured` — from scraped data (Cairo)
+- `reported` — local knowledge from someone who lives there (Sahel)
+- `estimate` — a judgement call, and labelled as such in the UI
+
+**Sahel is 1.0, not the 2.0 originally assumed.** Its resort reputation is about bars and
+restaurants; packaged goods at kiosks sell at ordinary prices, partly because many
+Egyptian packs carry a printed price (سعر الجمهور) that caps what a shop can charge. An
+inflated multiplier here was actively harmful: at 2.0 the app would have called 30 EGP for
+a 6 EGP bottle "fair".
 
 This was tested rather than assumed: Spinneys Egypt runs a separate `/en/sahel/`
 storefront, which looked like a way to measure real North Coast pricing. Comparing all 12
@@ -121,7 +130,7 @@ npm run build     # output lands in out/
 
 - Supermarket prices are a **baseline**, not kiosk prices; the kiosk markup bands are
   estimates.
-- Only Cairo is measured; every other zone multiplier is a judgement call.
+- Only Cairo is measured and Sahel reported; Giza, Luxor and the Red Sea remain estimates.
 - Baselines go stale with inflation — hence the weekly check and the visible
   "verified" date on each card.
 - Carrefour's search is loose (querying "water 1.5 liter" returns water *heaters*), so

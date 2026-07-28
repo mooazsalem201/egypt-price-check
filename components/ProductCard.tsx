@@ -157,7 +157,18 @@ export default function ProductCard({
           </div>
         )}
 
-        <p className="mt-2 text-xs text-slate-400 dark:text-slate-500">
+        {/* Not every Egyptian pack is price-marked, so this is a tip rather than the
+            headline -- but where it exists it beats any estimate we can compute, because
+            it is printed on the thing in your hand. */}
+        <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
+          Tip: many Egyptian packs have the price printed on them
+          {" "}
+          <span dir="rtl" lang="ar">
+            (سعر الجمهور)
+          </span>
+          {" "}— worth a look before you pay.
+        </p>
+        <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">
           Stays on your phone — nothing is sent anywhere.
         </p>
       </div>
@@ -165,7 +176,7 @@ export default function ProductCard({
       <footer className="mt-3 space-y-1 text-xs text-slate-400 dark:text-slate-500">
         <p>
           Baseline {product.baseline_egp} EGP · verified {product.updated}
-          {zone.source === "estimate" && " · zone markup is an estimate"}
+          {zone.source === "estimate" && " · area markup is an estimate"}
         </p>
         {/* The app asks for trust in a number; linking the shop listings makes that
             number checkable instead. */}

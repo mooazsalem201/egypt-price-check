@@ -15,8 +15,12 @@ export interface Zone {
   /** Short plain-language hint shown under the zone picker. */
   note: string;
   multiplier: number;
-  /** "measured" comes from scraped regional data; "estimate" is a judgement call. */
-  source: "measured" | "estimate";
+  /**
+   * Where the multiplier came from. "measured" is scraped data, "reported" is local
+   * knowledge from someone who lives there, "estimate" is a judgement call and should be
+   * labelled as such in the UI.
+   */
+  source: "measured" | "reported" | "estimate";
 }
 
 export interface PriceBands {
