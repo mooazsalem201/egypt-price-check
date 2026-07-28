@@ -28,7 +28,7 @@
       },
       {
         "store": "Spinneys",
-        "product": "Dasani Mineral Water- 600 Ml",
+        "product": "Dasani Mineral Water - 600 Ml",
         "url": "https://spinneys-egypt.com/en/dasany-mineral-water-600-ml",
         "price_egp": 5.95
       }
@@ -60,23 +60,28 @@
         "product": "Dasani Natural Drinking Water - 1.5 Liter",
         "url": "https://www.carrefouregypt.com/mafegy/en/still-water/dasani-natural-water-1-5l/p/104950?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 8.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "Dasani Mineral Water - 1.5 L",
+        "url": "https://spinneys-egypt.com/en/dasany-mineral-water-1-5-l",
+        "price_egp": 9.95
       }
     ]
   },
   {
-    "id": "water-600ml-local",
-    "name": "Local water 600ml",
-    "name_ar": "مياه محلية ٦٠٠ مل",
+    "id": "aqua-delta-600ml",
+    "name": "Aqua Delta 600ml",
+    "name_ar": "أكوا دلتا ٦٠٠ مل",
     "category": "water",
-    "baseline_egp": 5.5,
-    "image": "/products/water-600ml-local.jpg",
+    "baseline_egp": 5.99,
+    "image": "/products/aqua-delta-600ml.jpg",
     "aliases": [
       "water",
       "cheap water",
       "local water",
       "aqua delta",
-      "safi",
-      "maya"
+      "small water"
     ],
     "source": {
       "store": "Carrefour Egypt",
@@ -90,54 +95,42 @@
         "store": "Carrefour Egypt",
         "product": "Aqua Delta Natural Drinking Water - 600ml",
         "url": "https://www.carrefouregypt.com/mafegy/en/still-water/aqua-delta-water-600m/p/510163?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
-        "price_egp": 5.5
+        "price_egp": 5.99
       },
       {
         "store": "Spinneys",
-        "product": "Elano Natural Drinking Water - 12 * 600ml",
-        "url": "https://spinneys-egypt.com/en/elano-12natural-drinking-water-12-600",
-        "price_egp": 5.96
-      },
-      {
-        "store": "Mahmoud El Far",
-        "product": "Aquafina Mineral Water 600 Ml Box 20 Pieces",
-        "url": "https://mahmoudelfar.com/products/%D8%A7%D9%83%D9%88%D8%A7%D9%81%D9%8A%D9%86%D8%A7-%D9%85%D9%8A%D8%A7%D8%A9-%D9%85%D8%B9%D8%AF%D9%86%D9%8A%D8%A9-600%D9%85%D9%84%D9%84%D9%89*20%D9%82%D8%B7%D8%B9%D8%A9",
-        "price_egp": 6.4
+        "product": "Aqua Delta Nature Water - 600 Ml",
+        "url": "https://spinneys-egypt.com/en/aqua-delta-natrual-water",
+        "price_egp": 5.5
       }
     ]
   },
   {
-    "id": "coke-can",
-    "name": "Coca-Cola can",
-    "name_ar": "كوكاكولا علبة",
+    "id": "coke-glass",
+    "name": "Coca-Cola glass bottle",
+    "name_ar": "كوكاكولا زجاج",
     "category": "drinks",
-    "baseline_egp": 14.5,
-    "image": "/products/coke-can.jpg",
+    "baseline_egp": 19.99,
+    "image": "/products/coke-glass.jpg",
     "aliases": [
       "coke",
       "coca cola",
       "cola",
-      "can"
+      "glass bottle"
     ],
     "source": {
       "store": "Carrefour Egypt",
-      "product": "Coca Cola Original Taste Soft Drink Can - 300ml",
-      "url": "https://www.carrefouregypt.com/mafegy/en/cola/coca-cola-300ml/p/443516?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
-      "size": "300ml"
+      "product": "Coca Cola Original Taste Soft Drink Glass Bottle - 330ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/cola/coca-cola-glass-bottle-330m/p/510287?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "330ml"
     },
     "updated": "2026-07",
     "sources": [
       {
         "store": "Carrefour Egypt",
-        "product": "Coca Cola Original Taste Soft Drink Can - 300ml",
-        "url": "https://www.carrefouregypt.com/mafegy/en/cola/coca-cola-300ml/p/443516?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
-        "price_egp": 14.5
-      },
-      {
-        "store": "Spinneys",
-        "product": "Coca Cola Regular Glass Bottle - 330 Ml",
-        "url": "https://spinneys-egypt.com/en/coca-cola-bottle-330ml",
-        "price_egp": 19.95
+        "product": "Coca Cola Original Taste Soft Drink Glass Bottle - 330ml",
+        "url": "https://www.carrefouregypt.com/mafegy/en/cola/coca-cola-glass-bottle-330m/p/510287?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 19.99
       }
     ]
   },
@@ -171,7 +164,7 @@
       },
       {
         "store": "Spinneys",
-        "product": "Coca Cola Original - 950 Ml",
+        "product": "Coca Cola Carbonated Drink Pet - 950 Ml",
         "url": "https://spinneys-egypt.com/en/coca-cola-carbonated-drink-pet-0-95-l",
         "price_egp": 24.75
       }
@@ -269,9 +262,9 @@
       },
       {
         "store": "Spinneys",
-        "product": "Chipsy Potato Chips with Sweet Chili - 63-73G",
-        "url": "https://spinneys-egypt.com/en/chipsy-potato-chips-sweet-chili-63-73g",
-        "price_egp": 7.0
+        "product": "Chipsy Potato Chips With Salt - 65G",
+        "url": "https://spinneys-egypt.com/en/335544",
+        "price_egp": 10.0
       }
     ]
   },
@@ -290,16 +283,16 @@
     ],
     "source": {
       "store": "Carrefour Egypt",
-      "product": "Doritos Flamin Hot Lemon Tortilla Chips - 70 gm",
-      "url": "https://www.carrefouregypt.com/mafegy/en/tortilla/doritos-flaming-hot-lemon-70g/p/654172?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "product": "Doritos Sweet Chili Tortilla Chips - 70 gm",
+      "url": "https://www.carrefouregypt.com/mafegy/en/tortilla/doritos-sweet-chili-70g/p/654169?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
       "size": "70 gm"
     },
     "updated": "2026-07",
     "sources": [
       {
         "store": "Carrefour Egypt",
-        "product": "Doritos Flamin Hot Lemon Tortilla Chips - 70 gm",
-        "url": "https://www.carrefouregypt.com/mafegy/en/tortilla/doritos-flaming-hot-lemon-70g/p/654172?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "product": "Doritos Sweet Chili Tortilla Chips - 70 gm",
+        "url": "https://www.carrefouregypt.com/mafegy/en/tortilla/doritos-sweet-chili-70g/p/654169?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 9.99
       },
       {
@@ -338,9 +331,9 @@
       },
       {
         "store": "Spinneys",
-        "product": "GALAXY - MILK CHOCOLATE WITH CARAMEL - 34G",
-        "url": "https://spinneys-egypt.com/en/galaxy-milk-chocolate-with-caramel-34g-464209",
-        "price_egp": 38.5
+        "product": "Galaxy Chocolate With Hazelnut - 80G",
+        "url": "https://spinneys-egypt.com/en/galaxy-hazelnut-chocolate-bar-90g",
+        "price_egp": 83.95
       }
     ]
   },
@@ -375,12 +368,6 @@
         "product": "SNICKERS - DUO MILK CHOCOLATE FILLED W/ CARAMEL + PEANUT - 70G",
         "url": "https://spinneys-egypt.com/en/snickers-duo-milk-chocolate-filled-w-caramel-peanut-70g",
         "price_egp": 72.95
-      },
-      {
-        "store": "Mahmoud El Far",
-        "product": "Snickers Double Chocolate 70 Gm Box 24 Pieces",
-        "url": "https://mahmoudelfar.com/products/%D8%B3%D9%86%D9%8A%D9%83%D8%B1%D8%B2-%D8%B4%D9%8A%D9%83%D9%88%D9%84%D8%A7%D8%AA%D9%87-%D8%AF%D9%88%D8%A8%D9%84-70-%D8%AC%D9%85-%D8%B9%D9%84%D8%A8%D8%A9-24-%D9%82%D8%B7%D8%B9%D8%A9-6221134012989",
-        "price_egp": 79.83
       }
     ]
   },
@@ -420,6 +407,103 @@
     ]
   },
   {
+    "id": "twix",
+    "name": "Twix",
+    "name_ar": "تويكس",
+    "category": "snacks",
+    "baseline_egp": 31.99,
+    "image": "/products/twix.jpg",
+    "aliases": [
+      "twix",
+      "chocolate",
+      "bar"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Twix Chocolate Biscuit - 46 gram",
+      "url": "https://www.carrefouregypt.com/mafegy/en/snacking-chocolates/twix-chocolate-biscuit-46g/p/383049?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "46 gram"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Twix Chocolate Biscuit - 46 gram",
+        "url": "https://www.carrefouregypt.com/mafegy/en/snacking-chocolates/twix-chocolate-biscuit-46g/p/383049?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 31.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "TWIX - 3 BISCUIT WITH MILK CHOCOLATE+CARAMEL - 3*50G",
+        "url": "https://spinneys-egypt.com/en/twix-3-biscuit-with-milk-chocolate-caramel-3-50g-467963",
+        "price_egp": 32.0
+      }
+    ]
+  },
+  {
+    "id": "bounty",
+    "name": "Bounty",
+    "name_ar": "باونتي",
+    "category": "snacks",
+    "baseline_egp": 46.99,
+    "image": "/products/bounty.jpg",
+    "aliases": [
+      "bounty",
+      "coconut",
+      "chocolate",
+      "bar"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Bounty Coconut Chocolate Bar - 50gm",
+      "url": "https://www.carrefouregypt.com/mafegy/en/snacking-chocolates/bounty-chocolate-coconut-50g/p/657671?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "50gm"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Bounty Coconut Chocolate Bar - 50gm",
+        "url": "https://www.carrefouregypt.com/mafegy/en/snacking-chocolates/bounty-chocolate-coconut-50g/p/657671?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 46.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "Bounty Milk Chocolate Filled With Coconut - 50G",
+        "url": "https://spinneys-egypt.com/en/bounty-milk-chocolate-filled-w-coconut-50g",
+        "price_egp": 46.99
+      }
+    ]
+  },
+  {
+    "id": "mars",
+    "name": "Mars bar",
+    "name_ar": "مارس",
+    "category": "snacks",
+    "baseline_egp": 46.5,
+    "image": "/products/mars.jpg",
+    "aliases": [
+      "mars",
+      "chocolate",
+      "bar"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Mars Chocolate Bar - 40 gram",
+      "url": "https://www.carrefouregypt.com/mafegy/en/snacking-chocolates/mars-choco-nougat-caramel-40g/p/661073?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "40 gram"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Mars Chocolate Bar - 40 gram",
+        "url": "https://www.carrefouregypt.com/mafegy/en/snacking-chocolates/mars-choco-nougat-caramel-40g/p/661073?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 46.5
+      }
+    ]
+  },
+  {
     "id": "oreo",
     "name": "Oreo",
     "name_ar": "أوريو",
@@ -444,12 +528,323 @@
         "product": "Oreo Biscuit with Vanilla Cream 3 Cookies - 24 gram",
         "url": "https://www.carrefouregypt.com/mafegy/en/chocolate-cream-biscuits/oreo24g1-2/p/675118?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 4.99
+      }
+    ]
+  },
+  {
+    "id": "todo-brownies",
+    "name": "Todo brownies",
+    "name_ar": "تودو براونيز",
+    "category": "snacks",
+    "baseline_egp": 14.99,
+    "image": "",
+    "aliases": [
+      "todo",
+      "brownies",
+      "brownie",
+      "cake",
+      "chocolate cake"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Todo Brownies Cake - 1 Piece 1 Piece",
+      "url": "https://www.carrefouregypt.com/mafegy/en/cake-muffin/todo-cake-brownies-1p/p/456512?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": ""
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Todo Brownies Cake - 1 Piece 1 Piece",
+        "url": "https://www.carrefouregypt.com/mafegy/en/cake-muffin/todo-cake-brownies-1p/p/456512?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 14.99
       },
       {
         "store": "Spinneys",
-        "product": "OREO - COCOA BISCUIT FILLED W/ CHOCOLATE CREAM - 10PC",
-        "url": "https://spinneys-egypt.com/en/oreo-cocoa-biscuit-filled-w-chocolate-cream-10pc-467832",
-        "price_egp": 1.5
+        "product": "Todo Brownies Cake - 1 Pcs",
+        "url": "https://spinneys-egypt.com/en/todo-brownies-cake-1-piece",
+        "price_egp": 14.95
+      }
+    ]
+  },
+  {
+    "id": "molto-croissant",
+    "name": "Molto croissant",
+    "name_ar": "مولتو كرواسون",
+    "category": "snacks",
+    "baseline_egp": 9.99,
+    "image": "/products/molto-croissant.jpg",
+    "aliases": [
+      "molto",
+      "croissant",
+      "chocolate croissant",
+      "pastry"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Molto XXL Chocolate Croissant",
+      "url": "https://www.carrefouregypt.com/mafegy/en/croissants/molto-xxl-bigger-size1p/p/634450?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": ""
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Molto XXL Chocolate Croissant",
+        "url": "https://www.carrefouregypt.com/mafegy/en/croissants/molto-xxl-bigger-size1p/p/634450?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 9.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "MOLTO - MIX CROISSANT STRAWBERRY+CREAM - 1PC",
+        "url": "https://spinneys-egypt.com/en/molto-mix-croissant-strawberry-cream-1pc",
+        "price_egp": 10.0
+      }
+    ]
+  },
+  {
+    "id": "hohos",
+    "name": "Hohos cake roll",
+    "name_ar": "هوهوز",
+    "category": "snacks",
+    "baseline_egp": 9.99,
+    "image": "/products/hohos.jpg",
+    "aliases": [
+      "hohos",
+      "cake",
+      "swiss roll",
+      "chocolate roll"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Hohos King Rolled Chocolate Cake with Cream",
+      "url": "https://www.carrefouregypt.com/mafegy/en/cake-muffin/hohos-cream-king-size-1p/p/638329?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": ""
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Hohos King Rolled Chocolate Cake with Cream",
+        "url": "https://www.carrefouregypt.com/mafegy/en/cake-muffin/hohos-cream-king-size-1p/p/638329?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 9.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "Hohos Rolled Cake Filled With Strawberry Flavored Jelly & Cream - 1 Pcs",
+        "url": "https://spinneys-egypt.com/en/hohos-cake-rolled-with-strawberry-cream-1-piece",
+        "price_egp": 5.0
+      }
+    ]
+  },
+  {
+    "id": "wafer",
+    "name": "Wafer bar",
+    "name_ar": "ويفر",
+    "category": "snacks",
+    "baseline_egp": 8.99,
+    "image": "/products/wafer.jpg",
+    "aliases": [
+      "wafer",
+      "waffer",
+      "biscuit",
+      "corona"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Mandolin Wafer Cocoa Cream - 33gm",
+      "url": "https://www.carrefouregypt.com/mafegy/en/wafers/mandolin-wafer-33g/p/660034?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "33gm"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Mandolin Wafer Cocoa Cream - 33gm",
+        "url": "https://www.carrefouregypt.com/mafegy/en/wafers/mandolin-wafer-33g/p/660034?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 8.99
+      }
+    ]
+  },
+  {
+    "id": "pringles",
+    "name": "Pringles",
+    "name_ar": "برينجلز",
+    "category": "snacks",
+    "baseline_egp": 46.99,
+    "image": "/products/pringles.jpg",
+    "aliases": [
+      "pringles",
+      "chips",
+      "crisps"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Pringles Salt & Vinegar Flavored Chips - 40 gram",
+      "url": "https://www.carrefouregypt.com/mafegy/en/canned-potato-chips/pringels-potato-salt-vinegar40g/p/470487?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "40 gram"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Pringles Salt & Vinegar Flavored Chips - 40 gram",
+        "url": "https://www.carrefouregypt.com/mafegy/en/canned-potato-chips/pringels-potato-salt-vinegar40g/p/470487?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 46.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "Pringles Potato Chips - 40G",
+        "url": "https://spinneys-egypt.com/en/pringles-potato-chips",
+        "price_egp": 47.0
+      }
+    ]
+  },
+  {
+    "id": "juhayna-juice",
+    "name": "Juhayna juice 235ml",
+    "name_ar": "عصير جهينة",
+    "category": "drinks",
+    "baseline_egp": 9.99,
+    "image": "/products/juhayna-juice.jpg",
+    "aliases": [
+      "juice",
+      "juhayna",
+      "orange juice",
+      "mango",
+      "guava"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Juhayna Classic Guava Juice - 235ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/kids-juice/juhayna-classic-guava-juice-235m/p/433832?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "235ml"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Juhayna Classic Guava Juice - 235ml",
+        "url": "https://www.carrefouregypt.com/mafegy/en/kids-juice/juhayna-classic-guava-juice-235m/p/433832?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 9.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "Juhayna Classic Cocktail Juice- 235 Ml",
+        "url": "https://spinneys-egypt.com/en/juhayna-classic-cocktail-juice-235-ml",
+        "price_egp": 9.95
+      }
+    ]
+  },
+  {
+    "id": "flavoured-milk",
+    "name": "Flavoured milk 190ml",
+    "name_ar": "لبن بنكهة",
+    "category": "drinks",
+    "baseline_egp": 10.99,
+    "image": "/products/flavoured-milk.jpg",
+    "aliases": [
+      "milk",
+      "chocolate milk",
+      "banana milk",
+      "danone",
+      "dango"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Danone Dango Chocolate Milk - 190 ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/uht-flavored-milk/danone-dango-chocolate-milk-190-m/p/342907?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "190 ml"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Danone Dango Chocolate Milk - 190 ml",
+        "url": "https://www.carrefouregypt.com/mafegy/en/uht-flavored-milk/danone-dango-chocolate-milk-190-m/p/342907?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 10.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "Danone Dango Banana Flavored Milk- 200 Ml",
+        "url": "https://spinneys-egypt.com/en/danone-dango-banana-flavored-milk-200-ml",
+        "price_egp": 13.95
+      },
+      {
+        "store": "Mahmoud El Far",
+        "product": "200.00 gm Veira Milk Couverture Chocolate Bar 200 Gm",
+        "url": "https://mahmoudelfar.com/products/%D9%81%D9%8A%D8%B1%D8%A7-%D8%A8%D8%A7%D8%B1-%D8%B4%D9%88%D9%83%D9%88%D9%84%D8%A7%D8%AA%D8%A9-%D8%A8%D8%A7%D9%84%D8%AD%D9%84%D9%8A%D8%A8-%D9%83%D9%88%D9%81%D9%8A%D8%B1%D8%AA%D9%88%D8%B1-200-%D8%AC%D9%85-8680679360562",
+        "price_egp": 479.95
+      }
+    ]
+  },
+  {
+    "id": "chewing-gum",
+    "name": "Chewing gum",
+    "name_ar": "لبان",
+    "category": "snacks",
+    "baseline_egp": 13.99,
+    "image": "/products/chewing-gum.jpg",
+    "aliases": [
+      "gum",
+      "chewing gum",
+      "mentos",
+      "trident"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Mentos Fresh Gum Watermelon 3D - 8.5 gm",
+      "url": "https://www.carrefouregypt.com/mafegy/en/chewing-gum/mentos-fresh-gum-3d-watermelon-8-5g/p/532317?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "8.5 gm"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Mentos Fresh Gum Watermelon 3D - 8.5 gm",
+        "url": "https://www.carrefouregypt.com/mafegy/en/chewing-gum/mentos-fresh-gum-3d-watermelon-8-5g/p/532317?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 13.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "Mentos Gum Pure Fresh With Watermelon - 24G",
+        "url": "https://spinneys-egypt.com/en/mentos-gum-pure-fresh-w-watermelon-24g",
+        "price_egp": 54.95
+      }
+    ]
+  },
+  {
+    "id": "wet-wipes",
+    "name": "Wet wipes",
+    "name_ar": "مناديل مبللة",
+    "category": "toiletries",
+    "baseline_egp": 25.66,
+    "image": "",
+    "aliases": [
+      "wipes",
+      "wet wipes",
+      "baby wipes",
+      "tissues"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Max Touch Baby Wipes - 40 Wipes Pack of 3",
+      "url": "https://www.carrefouregypt.com/mafegy/en/baby-wipes-packs/max-touch-baby-wipes-40w-3/p/398086?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": ""
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Max Touch Baby Wipes - 40 Wipes Pack of 3",
+        "url": "https://www.carrefouregypt.com/mafegy/en/baby-wipes-packs/max-touch-baby-wipes-40w-3/p/398086?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 25.66
+      },
+      {
+        "store": "Mahmoud El Far",
+        "product": "Save 16% Extra Hygiene Baby Wet Wipes 80 tissues 3 Pieces EGP 297.25",
+        "url": "https://mahmoudelfar.com/products/%D9%87%D8%A7%D9%8A-%D8%AC%D9%8A%D9%86-%D9%88%D8%A7%D9%8A%D8%A8%D8%B3-%D8%A8%D9%8A%D8%A8%D9%89-80%D9%85*3%D9%82)",
+        "price_egp": 83.33
       }
     ]
   },
@@ -478,12 +873,6 @@
         "product": "Red Bull Energy Drink - 250ml",
         "url": "https://www.carrefouregypt.com/mafegy/en/energy-drinks/redbull-energy-drink-250m/p/218919?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 55.99
-      },
-      {
-        "store": "Mahmoud El Far",
-        "product": "Red Bull Energy Drink 250 Ml 4 Pieces",
-        "url": "https://mahmoudelfar.com/products/%D8%B1%D9%8A%D8%AF-%D8%A8%D9%84-%D9%85%D8%B4%D8%B1%D9%88%D8%A8-%D8%B7%D8%A7%D9%82%D8%A9-%D8%B4%D8%B1%D9%86%D9%83-4-%D8%B9%D8%A8%D9%88%D8%A9-250-%D9%85%D9%84",
-        "price_egp": 55.0
       }
     ]
   },
@@ -492,7 +881,7 @@
     "name": "Sunscreen SPF 50",
     "name_ar": "واقي شمس",
     "category": "toiletries",
-    "baseline_egp": 189.95,
+    "baseline_egp": 212.99,
     "image": "/products/sunscreen.jpg",
     "aliases": [
       "sunscreen",
@@ -513,13 +902,19 @@
         "store": "Carrefour Egypt",
         "product": "Eva Sun and Sea Kids Sunscreen Lotion SPF 50",
         "url": "https://www.carrefouregypt.com/mafegy/en/sunblock-lotion/eva-sun-sea-kids-lotion50-100m/p/682079?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
-        "price_egp": 189.95
+        "price_egp": 212.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "Kamena Sunscreen Cream Spf 35 - 150 Ml",
+        "url": "https://spinneys-egypt.com/en/kamena-sunscreen-cream-spf-35-150-ml",
+        "price_egp": 349.95
       },
       {
         "store": "Mahmoud El Far",
-        "product": "Momento Protection Spf 50 - 250 Ml",
-        "url": "https://mahmoudelfar.com/products/%D9%85%D9%88%D9%85%D9%8A%D9%86%D8%AA%D9%88-%D9%84%D9%88%D8%B4%D9%86-%D8%AD%D9%85%D8%A7%D9%8A%D8%A9-50-250-%D9%85%D9%84-6223013450523",
-        "price_egp": 425.0
+        "product": "Carroten Coconut Dreams Sun Care Invisible Spray Spf 50 - 200 Ml",
+        "url": "https://mahmoudelfar.com/products/%D9%83%D8%A7%D8%B1%D9%88%D8%AA%D9%8A%D9%86-%D8%B3%D8%A8%D8%B1%D8%A7%D9%8A-%D8%AD%D9%85%D8%A7%D9%8A%D8%A9-%D9%85%D9%86-%D8%A7%D9%84%D8%B4%D9%85%D8%B3-%D8%BA%D9%8A%D8%B1-%D9%85%D8%B1%D8%A6%D9%8A-%D8%A8%D8%A3%D8%AD%D9%84%D8%A7%D9%85-%D8%AC%D9%88%D8%B2-%D8%A7%D9%84%D9%87%D9%86%D8%AF-%D8%A8%D9%85%D8%B9%D8%A7%D9%85%D9%84-%D8%AD%D9%85%D8%A7%D9%8A%D8%A9-50-200-%D9%85%D9%84-5201314180692",
+        "price_egp": 975.0
       }
     ]
   },
@@ -548,6 +943,12 @@
         "product": "Zeina Pocket Tissues - 10 Tissues - 10 Pieces",
         "url": "https://www.carrefouregypt.com/mafegy/en/facial-tissues/zeina-facial-tissues-pocket-10p/p/57759?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 2.0
+      },
+      {
+        "store": "Spinneys",
+        "product": "FINE - POCKET TISSUE FINE 3 PLY - 9PC",
+        "url": "https://spinneys-egypt.com/en/fine-pocket-tissue-fine-3-ply-9pc",
+        "price_egp": 2.22
       },
       {
         "store": "Mahmoud El Far",

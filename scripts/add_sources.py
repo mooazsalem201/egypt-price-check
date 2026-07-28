@@ -15,6 +15,7 @@ The extra stores are evidence, not input.
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -35,18 +36,28 @@ MAX_CANDIDATES = 4
 NOT_FOUND_MARKERS = ("not found", "oops", "\u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f")
 
 
-def in_size_range(candidate, item) -> bool:
-    """Whether a candidate is genuinely the same variant, not merely the nearest one.
+def is_same_variant(candidate, item) -> bool:
+    """Whether a candidate is genuinely the same thing, not merely the nearest one.
 
     ranked_matches orders by *closest* size, which is right for price comparison -- a
-    2-finger KitKat is still informative about a 4-finger one. It is wrong for a
-    verification link: sending someone to a 330ml 24-box when the card prices a single
-    600ml bottle looks like an error, not evidence. Better to show no link.
+    2-finger KitKat still tells you something about a 4-finger one. It is wrong for a
+    verification link: sending someone to a 12-pack of a different brand when the card
+    prices a single bottle reads as the app citing the wrong product. Better no link.
     """
-    if not item.size_range:
-        return True
-    value = size_value(candidate.size)
-    return value is not None and item.size_range[0] <= value <= item.size_range[1]
+    if item.size_range:
+        value = size_value(candidate.size)
+        if value is None or not (item.size_range[0] <= value <= item.size_range[1]):
+            return False
+
+    # A tourist buys one bottle. Linking a case of twelve is not evidence for the price
+    # of one, even though the per-unit maths works out.
+    if getattr(candidate, "pack_count", 1) > item.max_pack:
+        return False
+
+    if item.exclude and re.search(item.exclude, candidate.name, re.I):
+        return False
+
+    return True
 
 
 def link_is_live(url: str, browser_instance, timeout_ms: int = 40000) -> bool:
@@ -99,7 +110,7 @@ def main() -> int:
                 # loaded and confirmed before being committed.
                 found = None
                 for candidate in ranked[:MAX_CANDIDATES]:
-                    if not candidate.url or not in_size_range(candidate, item):
+                    if not candidate.url or not is_same_variant(candidate, item):
                         continue
                     if link_is_live(candidate.url, instance):
                         found = candidate

@@ -43,6 +43,9 @@ class Item:
     size_range: tuple[int, int] | None  # in ml or grams
     max_egp: float  # sanity ceiling; an FMCG item is never hundreds of EGP
     aliases: list[str]  # what a tourist would actually type
+    # Sanity floor. A chocolate bar is never 2.50 EGP -- that figure only appears when a
+    # 24-piece box is misread as 24 separate bars, which no size or pack rule catches.
+    min_egp: float = 0.0
     # Most items are sold singly, but some are only sold in multipacks whose *unit* is the
     # thing a tourist buys -- one pocket tissue pack out of a strip of ten.
     max_pack: int = 3
@@ -79,22 +82,25 @@ CATALOGUE = [
     Item("dasani-15l", "Dasani 1.5L", "داساني ١.٥ لتر", "water", "dasani water 1.5 liter",
          r"dasani", (1400, 1600), 60, ["dasani", "water", "big water", "large water"],
          image_url="-"),
-    Item("water-600ml-local", "Local water 600ml", "مياه محلية ٦٠٠ مل", "water",
-         "drinking water 600ml", r"water", (500, 700), 40,
-         ["water", "cheap water", "local water", "aqua delta", "safi", "maya"]),
+    Item("aqua-delta-600ml", "Aqua Delta 600ml", "أكوا دلتا ٦٠٠ مل", "water",
+         "aqua delta water", r"aqua delta", (500, 700), 40,
+         ["water", "cheap water", "local water", "aqua delta", "small water"]),
 
     # --- Soft drinks ---
     # A tourist holding a red can means regular Coke, not Vanilla, Zero or an import.
     # Without this, the nearest-size match happily returns "Coca Cola With Vanilla" at
     # 69.50 EGP and every downstream verdict is wrong.
-    Item("coke-can", "Coca-Cola can", "كوكاكولا علبة", "drinks", "coca cola can",
-         r"coca cola", (300, 360), 60, ["coke", "coca cola", "cola", "can"],
-         exclude=VARIANTS),
+    # Carrefour delisted the plain 300ml can mid-development (only Zero and a 6-pack
+    # remain), so the 330ml glass bottle stands in -- the classic Egyptian kiosk Coke.
+    Item("coke-glass", "Coca-Cola glass bottle", "كوكاكولا زجاج", "drinks",
+         "coca cola glass bottle", r"coca cola.*glass", (320, 340), 60,
+         ["coke", "coca cola", "cola", "glass bottle"], exclude=VARIANTS),
     # Carrefour stocks Coke PET only in 950ml and 2.45L online -- there is no 390ml, so
     # the large bottle is the entry rather than inventing a size that is not sold.
     Item("coke-bottle", "Coca-Cola bottle 950ml", "كوكاكولا زجاجة كبيرة", "drinks",
          "coca cola pet bottle", r"coca cola", (900, 1000), 60,
-         ["coke", "coca cola", "cola", "bottle", "big coke"], exclude=VARIANTS),
+         ["coke", "coca cola", "cola", "bottle", "big coke"],
+         exclude=VARIANTS + r"|\bcan\b|glass"),
     Item("pepsi-bottle", "Pepsi bottle", "بيبسي زجاجة", "drinks", "pepsi bottle",
          r"pepsi", (380, 400), 60, ["pepsi", "cola", "soft drink"], exclude=VARIANTS),
     # Sprite has no entry: Carrefour now stocks only a 2.45L PET bottle, which is not a
@@ -114,18 +120,52 @@ CATALOGUE = [
     # --- Chocolate. Size window excludes the 22g "wafer roll" variants, which are a
     # different product from the chocolate bar a tourist means. ---
     Item("galaxy-bar", "Galaxy bar", "جالاكسي", "snacks", "galaxy chocolate bar",
-         r"galaxy", (30, 120), 80, ["galaxy", "chocolate", "bar"],
+         r"galaxy", (30, 120), 80, ["galaxy", "chocolate", "bar"], min_egp=15,
          exclude=r"flute|wafer|biscuit|drink|spread"),
     Item("snickers", "Snickers", "سنيكرز", "snacks", "snickers chocolate",
-         r"snickers", (30, 120), 80, ["snickers", "chocolate", "bar"]),
+         r"snickers", (35, 80), 80, ["snickers", "chocolate", "bar"],
+         min_egp=15, exclude=r"miniature|minis"),
     Item("kitkat", "KitKat", "كيت كات", "snacks", "kitkat chocolate",
          r"kitkat|kit kat", (30, 120), 80, ["kitkat", "kit kat", "chocolate", "bar"]),
 
-    # --- Biscuits ---
+    Item("twix", "Twix", "تويكس", "snacks", "twix chocolate",
+         r"twix", (40, 60), 80, ["twix", "chocolate", "bar"],
+         exclude=r"roll|mini"),
+    Item("bounty", "Bounty", "باونتي", "snacks", "bounty chocolate",
+         r"bounty", (40, 60), 80, ["bounty", "coconut", "chocolate", "bar"],
+         exclude=r"trio|mini"),
+    Item("mars", "Mars bar", "مارس", "snacks", "mars chocolate bar",
+         r"\bmars\b", (35, 60), 80, ["mars", "chocolate", "bar"]),
+
+    # --- Biscuits and cakes. The Egyptian kiosk staples a tourist actually sees on the
+    # counter, not just the international brands. ---
     Item("oreo", "Oreo", "أوريو", "snacks", "oreo biscuit",
          r"oreo", None, 40, ["oreo", "biscuit", "cookies"]),
+    Item("todo-brownies", "Todo brownies", "تودو براونيز", "snacks", "todo brownies",
+         r"todo", None, 60, ["todo", "brownies", "brownie", "cake", "chocolate cake"]),
+    Item("molto-croissant", "Molto croissant", "مولتو كرواسون", "snacks",
+         "molto croissant", r"molto", None, 60,
+         ["molto", "croissant", "chocolate croissant", "pastry"]),
+    Item("hohos", "Hohos cake roll", "هوهوز", "snacks", "hohos cake",
+         r"hohos", None, 60, ["hohos", "cake", "swiss roll", "chocolate roll"]),
+    Item("wafer", "Wafer bar", "ويفر", "snacks", "corona wafer",
+         r"wafer|waffer", (20, 60), 40, ["wafer", "waffer", "biscuit", "corona"]),
+    Item("pringles", "Pringles", "برينجلز", "snacks", "pringles",
+         r"pringles", (30, 60), 90, ["pringles", "chips", "crisps"]),
+
+    # --- Juice and milk, sold chilled at every kiosk ---
+    Item("juhayna-juice", "Juhayna juice 235ml", "عصير جهينة", "drinks",
+         "juhayna juice 235", r"juhayna", (220, 260), 60,
+         ["juice", "juhayna", "orange juice", "mango", "guava"]),
+    Item("flavoured-milk", "Flavoured milk 190ml", "لبن بنكهة", "drinks",
+         "danone dango milk", r"milk", (180, 250), 60,
+         ["milk", "chocolate milk", "banana milk", "danone", "dango"]),
 
     # --- Other ---
+    Item("chewing-gum", "Chewing gum", "لبان", "snacks", "mentos gum",
+         r"gum", (5, 30), 40, ["gum", "chewing gum", "mentos", "trident"]),
+    Item("wet-wipes", "Wet wipes", "مناديل مبللة", "toiletries", "wet wipes pack",
+         r"wipes", None, 80, ["wipes", "wet wipes", "baby wipes", "tissues"]),
     Item("redbull", "Red Bull", "ريد بول", "drinks", "red bull energy drink",
          r"red bull", (240, 360), 120, ["red bull", "energy", "energy drink"],
          exclude=VARIANTS),
@@ -133,7 +173,8 @@ CATALOGUE = [
     # ~190 EGP and the range runs to 380. The high ceiling is correct, not a loose filter.
     Item("sunscreen", "Sunscreen SPF 50", "واقي شمس", "toiletries", "sunscreen spf",
          r"sun(?:screen|block)|spf", (80, 250), 600,
-         ["sunscreen", "sunblock", "spf", "sun cream", "nivea"]),
+         ["sunscreen", "sunblock", "spf", "sun cream", "nivea"],
+         min_egp=50, exclude=r"hair|shampoo|after ?sun"),
     # Sold as a strip of ten packs; the unit a tourist buys is one pack, hence max_pack=12.
     Item("tissues", "Pocket tissues", "مناديل جيب", "toiletries", "pocket tissues",
          r"pocket tissue", None, 20, ["tissues", "kleenex", "napkins"], max_pack=12),
@@ -176,7 +217,9 @@ def pick(products: list[Product], item: Item) -> Product | None:
     pattern = re.compile(item.match, re.I)
     candidates = []
     for p in products:
-        if p.pack_count > item.max_pack or not (0 < p.unit_price_egp <= item.max_egp):
+        if p.pack_count > item.max_pack:
+            continue
+        if not (item.min_egp <= p.unit_price_egp <= item.max_egp) or p.unit_price_egp <= 0:
             continue
         if not pattern.search(p.name) or EXCLUDE_RE.search(p.name):
             continue
