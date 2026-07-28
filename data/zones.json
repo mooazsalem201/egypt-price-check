@@ -9,21 +9,21 @@
   {
     "id": "sahel",
     "label": "Sahel / North Coast",
-    "note": "Kiosks charge normal prices here — the resort reputation is about bars and restaurants, not packaged goods",
+    "note": "Same prices as Cairo — the resort reputation is about bars and restaurants, not packaged goods",
     "multiplier": 1.0,
-    "source": "reported"
+    "source": "measured"
   },
   {
     "id": "giza",
     "label": "Giza / Khan el-Khalili",
-    "note": "Tourist areas — expect a modest markup",
+    "note": "Shops charge normal prices; the markup is at tourist stalls, not in the area itself",
     "multiplier": 1.2,
     "source": "estimate"
   },
   {
     "id": "luxor",
     "label": "Luxor / Aswan",
-    "note": "Tourist areas — expect a modest markup",
+    "note": "Tourist areas — expect a modest markup at stalls",
     "multiplier": 1.2,
     "source": "estimate"
   },

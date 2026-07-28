@@ -61,18 +61,32 @@ Two Carrefour quirks worth knowing before editing the scraper:
 - `reported` — local knowledge from someone who lives there (Sahel)
 - `estimate` — a judgement call, and labelled as such in the UI
 
-**Sahel is 1.0, not the 2.0 originally assumed.** Its resort reputation is about bars and
-restaurants; packaged goods at kiosks sell at ordinary prices, partly because many
-Egyptian packs carry a printed price (سعر الجمهور) that caps what a shop can charge. An
-inflated multiplier here was actively harmful: at 2.0 the app would have called 30 EGP for
-a 6 EGP bottle "fair".
+**Sahel is 1.0, not the 2.0 originally assumed.** At 2.0 the app would have called 30 EGP
+for a 6 EGP bottle "fair" — the exact outcome it exists to prevent.
 
-This was tested rather than assumed: Spinneys Egypt runs a separate `/en/sahel/`
-storefront, which looked like a way to measure real North Coast pricing. Comparing all 12
-matched products between the Sahel and main catalogues gave a price ratio of **1.000 for
-every one** — Egyptian online grocers price nationally, and the Sahel section is a curated
-category, not a regional price list. Kiosk and resort markups are not observable from any
-grocery website.
+This is measured, not assumed. Seoudi Market is the only Egyptian grocer that prices per
+store rather than nationally: its catalogue is gated behind a city/area/district picker,
+and choosing a different store returns a different catalogue. `scripts/measure_zones.py`
+passes that gate for several locations and compares the same products:
+
+| Comparison | Products | Median ratio | Identical |
+|---|---|---|---|
+| North Coast (Alamein) vs Cairo | 26 | 1.000 | 26/26 |
+| Giza (Agouza) vs Cairo | 52 | 1.000 | 51/52 |
+
+The single exception is a Seoudi data error, not a regional difference — their Giza listing
+prices a 330ml single at 37.75 EGP while their own 24-pack of it works out to 5.21/unit.
+
+**What this proves and what it does not.** Packaged goods have no regional price
+difference: a chain charges the same in Alamein as in Maadi, helped by the printed price
+(سعر الجمهور) many Egyptian packs carry. It does not measure what a stall outside the
+pyramids charges — that markup is about the *venue*, not the region, and no grocery site
+can observe it. Giza, Luxor and the Red Sea keep modest multipliers on that basis, and stay
+labelled `estimate`.
+
+Spinneys was tried first and could not answer this: its separate `/en/sahel/` storefront
+turned out to be a curated category, not a regional price list — all 12 matched products
+came back at ratio 1.000 because Spinneys prices nationally.
 
 The UI labels estimated zones as such rather than presenting them as fact. Tune the
 numbers in `data/zones.json` against local knowledge.
