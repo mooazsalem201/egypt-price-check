@@ -85,6 +85,23 @@ CATALOGUE = [
     Item("aqua-delta-600ml", "Aqua Delta 600ml", "أكوا دلتا ٦٠٠ مل", "water",
          "aqua delta water", r"aqua delta", (500, 700), 40,
          ["water", "cheap water", "local water", "aqua delta", "small water"]),
+    # Water is the single most overcharged item, so the common Egyptian brands are all
+    # listed individually -- a tourist should find whichever bottle is in their hand
+    # rather than having to decide whether it counts as "local water".
+    Item("nestle-600ml", "Nestlé Pure Life 600ml", "نستله بيور لايف ٦٠٠ مل", "water",
+         "nestle pure life water", r"nestl", (500, 700), 40,
+         ["water", "nestle", "pure life", "small water", "bottle"]),
+    Item("nestle-1l", "Nestlé Pure Life 1L", "نستله بيور لايف ١ لتر", "water",
+         "nestle pure life water 1 liter", r"nestl", (900, 1100), 60,
+         ["water", "nestle", "pure life", "big water"]),
+    Item("elano-600ml", "Elano 600ml", "إيلانو ٦٠٠ مل", "water", "elano water",
+         r"elano", (500, 700), 40, ["water", "elano", "local water", "small water"]),
+    Item("elano-15l", "Elano 1.5L", "إيلانو ١.٥ لتر", "water", "elano water 1.5 liter",
+         r"elano", (1400, 1600), 60, ["water", "elano", "big water", "large water"]),
+    Item("baraka-600ml", "Baraka 600ml", "بركة ٦٠٠ مل", "water", "baraka water",
+         r"baraka", (500, 700), 40, ["water", "baraka", "local water", "small water"]),
+    Item("baraka-15l", "Baraka 1.5L", "بركة ١.٥ لتر", "water", "baraka water 1.5 liter",
+         r"baraka", (1400, 1600), 60, ["water", "baraka", "big water", "large water"]),
 
     # --- Soft drinks ---
     # A tourist holding a red can means regular Coke, not Vanilla, Zero or an import.
@@ -103,6 +120,9 @@ CATALOGUE = [
          exclude=VARIANTS + r"|\bcan\b|glass"),
     Item("pepsi-bottle", "Pepsi bottle", "بيبسي زجاجة", "drinks", "pepsi bottle",
          r"pepsi", (380, 400), 60, ["pepsi", "cola", "soft drink"], exclude=VARIANTS),
+    Item("schweppes", "Schweppes 250ml", "شويبس", "drinks", "schweppes",
+         r"schweppes", (240, 260), 60,
+         ["schweppes", "soda", "tonic", "soft drink", "pomegranate"]),
     # Sprite has no entry: Carrefour now stocks only a 2.45L PET bottle, which is not a
     # kiosk purchase. The 320ml can it sold earlier was delisted, as Aquafina 600ml was.
     # Re-add if the can returns.
@@ -157,6 +177,9 @@ CATALOGUE = [
     Item("juhayna-juice", "Juhayna juice 235ml", "عصير جهينة", "drinks",
          "juhayna juice 235", r"juhayna", (220, 260), 60,
          ["juice", "juhayna", "orange juice", "mango", "guava"]),
+    Item("juhayna-milk-1l", "Juhayna milk 1L", "لبن جهينة ١ لتر", "drinks",
+         "juhayna milk 1 liter", r"juhayna.*milk|milk.*juhayna", (900, 1100), 90,
+         ["milk", "juhayna", "full cream", "laban"]),
     Item("flavoured-milk", "Flavoured milk 190ml", "لبن بنكهة", "drinks",
          "danone dango milk", r"milk", (180, 250), 60,
          ["milk", "chocolate milk", "banana milk", "danone", "dango"]),

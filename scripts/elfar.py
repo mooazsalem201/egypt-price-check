@@ -36,6 +36,10 @@ PRICE_RE = re.compile(r"([\d,]+\.\d{2})\s*EGP")
 SIZE_RE = re.compile(r"(\d+(?:\.\d+)?)\s*(ml|l|g|kg|gm)\b", re.I)
 # Cards read "6.00 piece | Name 330 Ml Pack 6 Pieces | 356.00 EGP".
 PACK_RE = re.compile(r"Pack\s+(\d+)\s+Pieces|(\d+)\s+(?:Pieces|Sachects|Sachets)\b", re.I)
+# No bulk-word exclusion here on purpose. Excluding "box"/"carton" removed nearly every
+# El Far listing, since it sells largely in cases. The two real failure modes are already
+# covered downstream: a case with a stated count fails the pack-count check, and one
+# without a count yields a wildly high unit price that fails the price-ratio check.
 BARCODE_RE = re.compile(r"-(\d{8,14})$")
 
 _cache: dict[str, list["ElFarProduct"]] = {}
@@ -102,6 +106,9 @@ def _scrape_category(slug: str, browser_instance, page_no: int = 1, timeout_ms: 
         # nobody can buy.
         if re.match(r"^\s*out of stock\b", name, re.I):
             continue
+        # Cards also carry a promotional prefix ("Save 13% ..."), which is not part of the
+        # product name and makes matching and display both worse.
+        name = re.sub(r"^\s*save\s+\d+%\s*", "", name, flags=re.I).strip()
         pack_match = PACK_RE.search(name)
         pack = int(next(g for g in pack_match.groups() if g)) if pack_match else 1
         size = SIZE_RE.search(name)

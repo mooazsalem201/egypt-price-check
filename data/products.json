@@ -106,6 +106,217 @@
     ]
   },
   {
+    "id": "nestle-600ml",
+    "name": "Nestlé Pure Life 600ml",
+    "name_ar": "نستله بيور لايف ٦٠٠ مل",
+    "category": "water",
+    "baseline_egp": 6.5,
+    "image": "/products/nestle-600ml.jpg",
+    "aliases": [
+      "water",
+      "nestle",
+      "pure life",
+      "small water",
+      "bottle"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Nestle Pure Life Bottled Drinking Water - 600 ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/still-water/nestle-natural-water-600m/p/34574?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "600 ml"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Nestle Pure Life Bottled Drinking Water - 600 ml",
+        "url": "https://www.carrefouregypt.com/mafegy/en/still-water/nestle-natural-water-600m/p/34574?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 6.5
+      },
+      {
+        "store": "Spinneys",
+        "product": "Nestle Mineral Water - 600 Ml",
+        "url": "https://spinneys-egypt.com/en/nestle-mineral-water-600-ml",
+        "price_egp": 6.5
+      }
+    ]
+  },
+  {
+    "id": "nestle-1l",
+    "name": "Nestlé Pure Life 1L",
+    "name_ar": "نستله بيور لايف ١ لتر",
+    "category": "water",
+    "baseline_egp": 7.99,
+    "image": "/products/nestle-1l.jpg",
+    "aliases": [
+      "water",
+      "nestle",
+      "pure life",
+      "big water"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Nestle Pure Life Natural Drinking Water - 1 Liter",
+      "url": "https://www.carrefouregypt.com/mafegy/en/still-water/nestle-pure-life-1l/p/607538?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "1 liter"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Nestle Pure Life Natural Drinking Water - 1 Liter",
+        "url": "https://www.carrefouregypt.com/mafegy/en/still-water/nestle-pure-life-1l/p/607538?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 7.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "Nestle Pure Life Water Still - 1L",
+        "url": "https://spinneys-egypt.com/en/nestle-pure-life-water-still-1l",
+        "price_egp": 7.55
+      }
+    ]
+  },
+  {
+    "id": "elano-600ml",
+    "name": "Elano 600ml",
+    "name_ar": "إيلانو ٦٠٠ مل",
+    "category": "water",
+    "baseline_egp": 5.99,
+    "image": "/products/elano-600ml.jpg",
+    "aliases": [
+      "water",
+      "elano",
+      "local water",
+      "small water"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Elano Natural Drinking Water - 600 ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/still-water/elano-water-600m/p/533153?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "600 ml"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Elano Natural Drinking Water - 600 ml",
+        "url": "https://www.carrefouregypt.com/mafegy/en/still-water/elano-water-600m/p/533153?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 5.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "Elano Natural Drinking Water - 600 ML",
+        "url": "https://spinneys-egypt.com/en/elano-natural-drinking-water-600ml",
+        "price_egp": 6.25
+      }
+    ]
+  },
+  {
+    "id": "elano-15l",
+    "name": "Elano 1.5L",
+    "name_ar": "إيلانو ١.٥ لتر",
+    "category": "water",
+    "baseline_egp": 9.99,
+    "image": "/products/elano-15l.jpg",
+    "aliases": [
+      "water",
+      "elano",
+      "big water",
+      "large water"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Elano Natural Drinking Water -1.5 Liter",
+      "url": "https://www.carrefouregypt.com/mafegy/en/still-water/elano-water-1-50l/p/533155?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "1.5 liter"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Elano Natural Drinking Water -1.5 Liter",
+        "url": "https://www.carrefouregypt.com/mafegy/en/still-water/elano-water-1-50l/p/533155?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 9.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "Elano Natural Drinking Water - 1.5 L",
+        "url": "https://spinneys-egypt.com/en/elano-natural-water-1-5-l",
+        "price_egp": 10.5
+      }
+    ]
+  },
+  {
+    "id": "baraka-600ml",
+    "name": "Baraka 600ml",
+    "name_ar": "بركة ٦٠٠ مل",
+    "category": "water",
+    "baseline_egp": 5.5,
+    "image": "/products/baraka-600ml.jpg",
+    "aliases": [
+      "water",
+      "baraka",
+      "local water",
+      "small water"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Baraka Bottled Water - 600ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/still-water/baraka-natural-water-600m/p/205635?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "600ml"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Baraka Bottled Water - 600ml",
+        "url": "https://www.carrefouregypt.com/mafegy/en/still-water/baraka-natural-water-600m/p/205635?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 5.5
+      },
+      {
+        "store": "Spinneys",
+        "product": "Baraka Mineral Water - 600Ml",
+        "url": "https://spinneys-egypt.com/en/baraka-mineral-water-600-ml",
+        "price_egp": 5.75
+      }
+    ]
+  },
+  {
+    "id": "baraka-15l",
+    "name": "Baraka 1.5L",
+    "name_ar": "بركة ١.٥ لتر",
+    "category": "water",
+    "baseline_egp": 8.99,
+    "image": "/products/baraka-15l.jpg",
+    "aliases": [
+      "water",
+      "baraka",
+      "big water",
+      "large water"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Baraka Bottled Drinking Water - 1.5 Liters",
+      "url": "https://www.carrefouregypt.com/mafegy/en/still-water/baraka-natural-water-1-5l/p/3516?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "1.5 liters"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Baraka Bottled Drinking Water - 1.5 Liters",
+        "url": "https://www.carrefouregypt.com/mafegy/en/still-water/baraka-natural-water-1-5l/p/3516?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 8.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "Baraka Mineral Water - 1.5 L",
+        "url": "https://spinneys-egypt.com/en/aquafina-natural-drinking-water-600-ml",
+        "price_egp": 9.85
+      }
+    ]
+  },
+  {
     "id": "coke-glass",
     "name": "Coca-Cola glass bottle",
     "name_ar": "كوكاكولا زجاج",
@@ -201,6 +412,42 @@
         "product": "Pepsi Carbonated Drink - 400 Ml",
         "url": "https://spinneys-egypt.com/en/279503",
         "price_egp": 12.5
+      }
+    ]
+  },
+  {
+    "id": "schweppes",
+    "name": "Schweppes 250ml",
+    "name_ar": "شويبس",
+    "category": "drinks",
+    "baseline_egp": 14.99,
+    "image": "/products/schweppes.jpg",
+    "aliases": [
+      "schweppes",
+      "soda",
+      "tonic",
+      "soft drink",
+      "pomegranate"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Schweppes Lemon Mint Soft Drink - 240ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/lemonade-mixers/schweppes-lemon-mint-can-240m/p/648227?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "240ml"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Schweppes Lemon Mint Soft Drink - 240ml",
+        "url": "https://www.carrefouregypt.com/mafegy/en/lemonade-mixers/schweppes-lemon-mint-can-240m/p/648227?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 14.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "SCHWEPPES - CARBONATED DRINK W/ PEACH - 250ML",
+        "url": "https://spinneys-egypt.com/en/schweppes-carbonated-drink-w-peach-250ml",
+        "price_egp": 12.75
       }
     ]
   },
@@ -737,6 +984,41 @@
     ]
   },
   {
+    "id": "juhayna-milk-1l",
+    "name": "Juhayna milk 1L",
+    "name_ar": "لبن جهينة ١ لتر",
+    "category": "drinks",
+    "baseline_egp": 47.99,
+    "image": "/products/juhayna-milk-1l.jpg",
+    "aliases": [
+      "milk",
+      "juhayna",
+      "full cream",
+      "laban"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Juhayna Full Cream Milk - 1 Liter",
+      "url": "https://www.carrefouregypt.com/mafegy/en/full-cream-milk/juhayna-full-cream-milk-1l/p/12721?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "1 liter"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Juhayna Full Cream Milk - 1 Liter",
+        "url": "https://www.carrefouregypt.com/mafegy/en/full-cream-milk/juhayna-full-cream-milk-1l/p/12721?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 47.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "Juhayna Milk Semi Skimmed - 1 L",
+        "url": "https://spinneys-egypt.com/en/juhayna-semi-skimmed-milk-1-l-spinneys",
+        "price_egp": 54.95
+      }
+    ]
+  },
+  {
     "id": "flavoured-milk",
     "name": "Flavoured milk 190ml",
     "name_ar": "لبن بنكهة",
@@ -769,12 +1051,6 @@
         "product": "Danone Dango Banana Flavored Milk- 200 Ml",
         "url": "https://spinneys-egypt.com/en/danone-dango-banana-flavored-milk-200-ml",
         "price_egp": 13.95
-      },
-      {
-        "store": "Mahmoud El Far",
-        "product": "200.00 gm Veira Milk Couverture Chocolate Bar 200 Gm",
-        "url": "https://mahmoudelfar.com/products/%D9%81%D9%8A%D8%B1%D8%A7-%D8%A8%D8%A7%D8%B1-%D8%B4%D9%88%D9%83%D9%88%D9%84%D8%A7%D8%AA%D8%A9-%D8%A8%D8%A7%D9%84%D8%AD%D9%84%D9%8A%D8%A8-%D9%83%D9%88%D9%81%D9%8A%D8%B1%D8%AA%D9%88%D8%B1-200-%D8%AC%D9%85-8680679360562",
-        "price_egp": 479.95
       }
     ]
   },
@@ -804,12 +1080,6 @@
         "product": "Mentos Fresh Gum Watermelon 3D - 8.5 gm",
         "url": "https://www.carrefouregypt.com/mafegy/en/chewing-gum/mentos-fresh-gum-3d-watermelon-8-5g/p/532317?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 13.99
-      },
-      {
-        "store": "Spinneys",
-        "product": "Mentos Gum Pure Fresh With Watermelon - 24G",
-        "url": "https://spinneys-egypt.com/en/mentos-gum-pure-fresh-w-watermelon-24g",
-        "price_egp": 54.95
       }
     ]
   },
@@ -839,12 +1109,6 @@
         "product": "Max Touch Baby Wipes - 40 Wipes Pack of 3",
         "url": "https://www.carrefouregypt.com/mafegy/en/baby-wipes-packs/max-touch-baby-wipes-40w-3/p/398086?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 25.66
-      },
-      {
-        "store": "Mahmoud El Far",
-        "product": "Save 16% Extra Hygiene Baby Wet Wipes 80 tissues 3 Pieces EGP 297.25",
-        "url": "https://mahmoudelfar.com/products/%D9%87%D8%A7%D9%8A-%D8%AC%D9%8A%D9%86-%D9%88%D8%A7%D9%8A%D8%A8%D8%B3-%D8%A8%D9%8A%D8%A8%D9%89-80%D9%85*3%D9%82)",
-        "price_egp": 83.33
       }
     ]
   },
@@ -909,12 +1173,6 @@
         "product": "Kamena Sunscreen Cream Spf 35 - 150 Ml",
         "url": "https://spinneys-egypt.com/en/kamena-sunscreen-cream-spf-35-150-ml",
         "price_egp": 349.95
-      },
-      {
-        "store": "Mahmoud El Far",
-        "product": "Carroten Coconut Dreams Sun Care Invisible Spray Spf 50 - 200 Ml",
-        "url": "https://mahmoudelfar.com/products/%D9%83%D8%A7%D8%B1%D9%88%D8%AA%D9%8A%D9%86-%D8%B3%D8%A8%D8%B1%D8%A7%D9%8A-%D8%AD%D9%85%D8%A7%D9%8A%D8%A9-%D9%85%D9%86-%D8%A7%D9%84%D8%B4%D9%85%D8%B3-%D8%BA%D9%8A%D8%B1-%D9%85%D8%B1%D8%A6%D9%8A-%D8%A8%D8%A3%D8%AD%D9%84%D8%A7%D9%85-%D8%AC%D9%88%D8%B2-%D8%A7%D9%84%D9%87%D9%86%D8%AF-%D8%A8%D9%85%D8%B9%D8%A7%D9%85%D9%84-%D8%AD%D9%85%D8%A7%D9%8A%D8%A9-50-200-%D9%85%D9%84-5201314180692",
-        "price_egp": 975.0
       }
     ]
   },
@@ -949,12 +1207,6 @@
         "product": "FINE - POCKET TISSUE FINE 3 PLY - 9PC",
         "url": "https://spinneys-egypt.com/en/fine-pocket-tissue-fine-3-ply-9pc",
         "price_egp": 2.22
-      },
-      {
-        "store": "Mahmoud El Far",
-        "product": "Fine Classic Sterilized Perfumed Pocket Tissues 3 Ply 10 X 1",
-        "url": "https://mahmoudelfar.com/products/%D9%81%D8%A7%D9%8A%D9%86-%D9%85%D9%86%D8%A7%D8%AF%D9%8A%D9%84-%D8%AC%D9%8A%D8%A8-3-%D8%B7%D8%A8%D9%82%D8%A7%D8%AA-10-%D9%85%D9%86%D8%AF%D9%8A%D9%84-6251001214628",
-        "price_egp": 21.5
       }
     ]
   }

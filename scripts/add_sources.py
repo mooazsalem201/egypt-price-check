@@ -36,6 +36,25 @@ MAX_CANDIDATES = 4
 NOT_FOUND_MARKERS = ("not found", "oops", "\u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f")
 
 
+# How far a store's price may sit from the Carrefour baseline before the listing is
+# assumed to be a different product rather than a different price. Generous on purpose:
+# chains genuinely differ, and the goal is to reject "Nestle 600ml Carton at 97.95 EGP
+# beside a 6.50 bottle", not to hide honest disagreement.
+MAX_PRICE_RATIO = 3.0
+
+
+def price_is_plausible(candidate, baseline_egp: float) -> bool:
+    """Whether a candidate could be the same product, judged by price alone.
+
+    Name-based rules keep missing new phrasings -- "Pack of 12" was handled, then "24
+    Pieces", then "Carton". A ratio test catches the whole class regardless of wording.
+    """
+    if baseline_egp <= 0 or candidate.unit_price_egp <= 0:
+        return False
+    ratio = candidate.unit_price_egp / baseline_egp
+    return 1 / MAX_PRICE_RATIO <= ratio <= MAX_PRICE_RATIO
+
+
 def is_same_variant(candidate, item) -> bool:
     """Whether a candidate is genuinely the same thing, not merely the nearest one.
 
@@ -111,6 +130,11 @@ def main() -> int:
                 found = None
                 for candidate in ranked[:MAX_CANDIDATES]:
                     if not candidate.url or not is_same_variant(candidate, item):
+                        continue
+                    if not price_is_plausible(candidate, product["baseline_egp"]):
+                        print(f"     (implausible price, skipping: {label} / {product['id']} "
+                              f"@ {candidate.unit_price_egp} vs {product['baseline_egp']})",
+                              file=sys.stderr)
                         continue
                     if link_is_live(candidate.url, instance):
                         found = candidate
