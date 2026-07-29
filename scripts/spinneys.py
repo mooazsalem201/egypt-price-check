@@ -25,7 +25,12 @@ PRICE_RE = re.compile(r"([\d,]+\.\d{2})\s*EGP")
 SIZE_RE = re.compile(r"(\d+(?:\.\d+)?)\s*(ml|l|g|kg|gm)\b", re.I)
 # Multipacks appear as "12 * 600ml", "- 9PC", "6 X 250ML". Without dividing these out a
 # 12-pack of water reads as a single bottle costing 60 EGP.
-PACK_RE = re.compile(r"(?:^|[\s\-])(\d{1,2})\s*(?:\*|x|X)\s*\d|(\d{1,2})\s*PC\b", re.I)
+PACK_RE = re.compile(
+    r"(?:^|[\s\-])(\d{1,2})\s*(?:\*|x|X)\s*\d|(\d{1,2})\s*PC\b",
+    re.I,
+)
+# "DUO", "TRIO" and similar name a multipack without a digit anywhere.
+NAMED_PACK_RE = re.compile(r"\b(duo|trio|twin|multipack|family pack)\b", re.I)
 
 
 BASE = "https://spinneys-egypt.com"
@@ -94,6 +99,8 @@ def search(keyword: str, browser_instance, timeout_ms: int = 45000) -> list[Spin
         size = SIZE_RE.search(name)
         pack_match = PACK_RE.search(name)
         pack = int(next(g for g in pack_match.groups() if g)) if pack_match else 1
+        if pack == 1 and NAMED_PACK_RE.search(name):
+            pack = 2  # unknown count, but definitely more than one
         products.append(
             SpinneysProduct(
                 name=name,

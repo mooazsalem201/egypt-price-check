@@ -156,6 +156,10 @@ CATALOGUE = [
          exclude=r"trio|mini"),
     Item("mars", "Mars bar", "مارس", "snacks", "mars chocolate bar",
          r"\bmars\b", (35, 60), 80, ["mars", "chocolate", "bar"]),
+    Item("mms", "M&M's", "إم آند إمز", "snacks", "m&m's chocolate",
+         r"m&m", (30, 60), 80, ["m&m", "mms", "chocolate", "candy"], min_egp=15),
+    Item("maltesers", "Maltesers", "مالتيزرز", "snacks", "maltesers",
+         r"maltesers", (30, 60), 80, ["maltesers", "chocolate", "candy"], min_egp=15),
 
     # --- Biscuits and cakes. The Egyptian kiosk staples a tourist actually sees on the
     # counter, not just the international brands. ---
@@ -168,8 +172,10 @@ CATALOGUE = [
          ["molto", "croissant", "chocolate croissant", "pastry"]),
     Item("hohos", "Hohos cake roll", "هوهوز", "snacks", "hohos cake",
          r"hohos", None, 60, ["hohos", "cake", "swiss roll", "chocolate roll"]),
-    Item("wafer", "Wafer bar", "ويفر", "snacks", "corona wafer",
-         r"wafer|waffer", (20, 60), 40, ["wafer", "waffer", "biscuit", "corona"]),
+    Item("twinkies", "Twinkies cake", "تwinكيز", "snacks", "twinkies cake",
+         r"twinkies", None, 60, ["twinkies", "cake", "cream cake", "sponge"]),
+    Item("wafer", "Mandolin wafer", "ويفر ماندولين", "snacks", "mandolin wafer",
+         r"mandolin", (20, 60), 40, ["wafer", "waffer", "biscuit", "mandolin"]),
     Item("pringles", "Pringles", "برينجلز", "snacks", "pringles",
          r"pringles", (30, 60), 90, ["pringles", "chips", "crisps"]),
 
@@ -185,8 +191,12 @@ CATALOGUE = [
          ["milk", "chocolate milk", "banana milk", "danone", "dango"]),
 
     # --- Other ---
-    Item("chewing-gum", "Chewing gum", "لبان", "snacks", "mentos gum",
-         r"gum", (5, 30), 40, ["gum", "chewing gum", "mentos", "trident"]),
+    Item("chewing-gum", "Mentos gum", "لبان منتوس", "snacks", "mentos gum",
+         r"mentos", (5, 30), 40, ["gum", "chewing gum", "mentos"]),
+    Item("extra-gum", "Extra gum", "لبان إكسترا", "snacks", "wrigley extra gum",
+         r"extra", (5, 30), 40, ["gum", "chewing gum", "extra", "wrigley"]),
+    Item("sting", "Sting energy drink", "ستينج", "drinks", "sting energy drink",
+         r"sting", (240, 420), 60, ["sting", "energy", "energy drink"]),
     Item("wet-wipes", "Wet wipes", "مناديل مبللة", "toiletries", "wet wipes pack",
          r"wipes", None, 80, ["wipes", "wet wipes", "baby wipes", "tissues"]),
     Item("redbull", "Red Bull", "ريد بول", "drinks", "red bull energy drink",

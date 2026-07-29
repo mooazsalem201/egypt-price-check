@@ -378,6 +378,12 @@
         "product": "Coca Cola Carbonated Drink Pet - 950 Ml",
         "url": "https://spinneys-egypt.com/en/coca-cola-carbonated-drink-pet-0-95-l",
         "price_egp": 24.75
+      },
+      {
+        "store": "Talabat Mart",
+        "product": "Coca Cola Soft Drink Pet, 0.95L",
+        "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/beverages/soft-drinks?aid=6963",
+        "price_egp": 25.5
       }
     ]
   },
@@ -386,7 +392,7 @@
     "name": "Pepsi bottle",
     "name_ar": "بيبسي زجاجة",
     "category": "drinks",
-    "baseline_egp": 10.49,
+    "baseline_egp": 10.99,
     "image": "/products/pepsi-bottle.jpg",
     "aliases": [
       "pepsi",
@@ -405,13 +411,19 @@
         "store": "Carrefour Egypt",
         "product": "Pepsi Cola Soft Drink Bottle - 390 ml",
         "url": "https://www.carrefouregypt.com/mafegy/en/cola/pepsi-cola-pet-390m/p/392583?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
-        "price_egp": 10.49
+        "price_egp": 10.99
       },
       {
         "store": "Spinneys",
         "product": "Pepsi Carbonated Drink - 400 Ml",
         "url": "https://spinneys-egypt.com/en/279503",
         "price_egp": 12.5
+      },
+      {
+        "store": "Talabat Mart",
+        "product": "Pepsi Soft Drink, 390ml",
+        "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/beverages/soft-drinks?aid=6963",
+        "price_egp": 13.0
       }
     ]
   },
@@ -448,6 +460,12 @@
         "product": "SCHWEPPES - CARBONATED DRINK W/ PEACH - 250ML",
         "url": "https://spinneys-egypt.com/en/schweppes-carbonated-drink-w-peach-250ml",
         "price_egp": 12.75
+      },
+      {
+        "store": "Talabat Mart",
+        "product": "Schweppes Tonic Water Twist Off, 250ml",
+        "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/beverages/water?aid=6963",
+        "price_egp": 25.5
       }
     ]
   },
@@ -508,9 +526,9 @@
         "price_egp": 9.99
       },
       {
-        "store": "Spinneys",
-        "product": "Chipsy Potato Chips With Salt - 65G",
-        "url": "https://spinneys-egypt.com/en/335544",
+        "store": "Talabat Mart",
+        "product": "Chipsy Cheese Flavor Chips, 55g",
+        "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/snacks-chocolate/chips-dips?aid=6963",
         "price_egp": 10.0
       }
     ]
@@ -544,9 +562,15 @@
       },
       {
         "store": "Spinneys",
-        "product": "Doritos Tortila Crisps With Sweet Chili - 45G",
-        "url": "https://spinneys-egypt.com/en/doritos-tortila-crisps-with-sweet-chili-45g",
-        "price_egp": 5.0
+        "product": "DORITOS - TORTILLA CHIPS W/ SMOKY BBQ - 57-67G",
+        "url": "https://spinneys-egypt.com/en/doritos-tortilla-chips-w-smoky-bbq-57-67g",
+        "price_egp": 10.0
+      },
+      {
+        "store": "Talabat Mart",
+        "product": "Doritos Sweet Chili Pepper Tortilla Chips, 59g",
+        "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/snacks-chocolate/chips-dips?aid=6963",
+        "price_egp": 10.0
       }
     ]
   },
@@ -577,10 +601,10 @@
         "price_egp": 34.99
       },
       {
-        "store": "Spinneys",
-        "product": "Galaxy Chocolate With Hazelnut - 80G",
-        "url": "https://spinneys-egypt.com/en/galaxy-hazelnut-chocolate-bar-90g",
-        "price_egp": 83.95
+        "store": "Talabat Mart",
+        "product": "Galaxy Caramel Chocolate Bar, 34g",
+        "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/snacks-chocolate/chocolate?aid=6963",
+        "price_egp": 40.0
       }
     ]
   },
@@ -612,9 +636,9 @@
       },
       {
         "store": "Spinneys",
-        "product": "SNICKERS - DUO MILK CHOCOLATE FILLED W/ CARAMEL + PEANUT - 70G",
-        "url": "https://spinneys-egypt.com/en/snickers-duo-milk-chocolate-filled-w-caramel-peanut-70g",
-        "price_egp": 72.95
+        "product": "Snickers Milk Chocolate Filled With Caramel And Peanut - 40G",
+        "url": "https://spinneys-egypt.com/en/snickers-milk-chocolate-filled-w-caramel-peanut-40g",
+        "price_egp": 41.5
       }
     ]
   },
@@ -647,9 +671,9 @@
       },
       {
         "store": "Spinneys",
-        "product": "KITKAT - KCHUNKY WAFER W/MILK CHOCO&WAFFLE PIECES+VANI.ICE. - 44G",
-        "url": "https://spinneys-egypt.com/en/kitkat-kchunky-wafer-w-milk-choco-waffle-pieces-vani-ice-44g",
-        "price_egp": 37.95
+        "product": "KITKAT - WAFER W/PISTACHIO KUNAFA+CRUNCHY BISCUITS - 41G",
+        "url": "https://spinneys-egypt.com/en/kitkat-wafer-w-pistachio-kunafa-crunchy-biscuits-41g-465053",
+        "price_egp": 48.5
       }
     ]
   },
@@ -716,9 +740,9 @@
       },
       {
         "store": "Spinneys",
-        "product": "Bounty Milk Chocolate Filled With Coconut - 50G",
-        "url": "https://spinneys-egypt.com/en/bounty-milk-chocolate-filled-w-coconut-50g",
-        "price_egp": 46.99
+        "product": "Bounty 3 Milk Chocolate With Coconut - 3*50G",
+        "url": "https://spinneys-egypt.com/en/bounty-3-milk-chocolate-with-coconut-3-50g-467959",
+        "price_egp": 39.98
       }
     ]
   },
@@ -747,6 +771,81 @@
         "product": "Mars Chocolate Bar - 40 gram",
         "url": "https://www.carrefouregypt.com/mafegy/en/snacking-chocolates/mars-choco-nougat-caramel-40g/p/661073?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 46.5
+      }
+    ]
+  },
+  {
+    "id": "mms",
+    "name": "M&M's",
+    "name_ar": "إم آند إمز",
+    "category": "snacks",
+    "baseline_egp": 43.99,
+    "image": "/products/mms.jpg",
+    "aliases": [
+      "m&m",
+      "mms",
+      "chocolate",
+      "candy"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "M&M's Crispy Chocolate - 36 gram",
+      "url": "https://www.carrefouregypt.com/mafegy/en/mini-chocolates/m-m-s-with-crisp-36g/p/543386?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "36 gram"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "M&M's Crispy Chocolate - 36 gram",
+        "url": "https://www.carrefouregypt.com/mafegy/en/mini-chocolates/m-m-s-with-crisp-36g/p/543386?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 43.99
+      },
+      {
+        "store": "Talabat Mart",
+        "product": "M&M's Milk Chocolate, 45g",
+        "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/snacks-chocolate/chocolate?aid=6963",
+        "price_egp": 50.0
+      }
+    ]
+  },
+  {
+    "id": "maltesers",
+    "name": "Maltesers",
+    "name_ar": "مالتيزرز",
+    "category": "snacks",
+    "baseline_egp": 39.0,
+    "image": "",
+    "aliases": [
+      "maltesers",
+      "chocolate",
+      "candy"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Maltesers Chocolate Crisp Value Pack - 37 gram - 3 Pieces",
+      "url": "https://www.carrefouregypt.com/mafegy/en/mini-chocolates/maltesers-37g-3p-value-pack/p/611502?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "37 gram"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Maltesers Chocolate Crisp Value Pack - 37 gram - 3 Pieces",
+        "url": "https://www.carrefouregypt.com/mafegy/en/mini-chocolates/maltesers-37g-3p-value-pack/p/611502?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 39.0
+      },
+      {
+        "store": "Spinneys",
+        "product": "Maltesers Chocolate - 37 G",
+        "url": "https://spinneys-egypt.com/en/maltesers-chocolate-37g",
+        "price_egp": 43.95
+      },
+      {
+        "store": "Talabat Mart",
+        "product": "Maltesers Chocolate, 37g",
+        "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/snacks-chocolate/chocolate?aid=6963",
+        "price_egp": 50.0
       }
     ]
   },
@@ -783,7 +882,7 @@
     "name": "Todo brownies",
     "name_ar": "تودو براونيز",
     "category": "snacks",
-    "baseline_egp": 14.99,
+    "baseline_egp": 13.99,
     "image": "",
     "aliases": [
       "todo",
@@ -804,13 +903,19 @@
         "store": "Carrefour Egypt",
         "product": "Todo Brownies Cake - 1 Piece 1 Piece",
         "url": "https://www.carrefouregypt.com/mafegy/en/cake-muffin/todo-cake-brownies-1p/p/456512?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
-        "price_egp": 14.99
+        "price_egp": 13.99
       },
       {
         "store": "Spinneys",
         "product": "Todo Brownies Cake - 1 Pcs",
         "url": "https://spinneys-egypt.com/en/todo-brownies-cake-1-piece",
         "price_egp": 14.95
+      },
+      {
+        "store": "Talabat Mart",
+        "product": "Todo Chocolate Brownie Cake, 50g",
+        "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/snacks-chocolate/cakes?aid=6963",
+        "price_egp": 15.0
       }
     ]
   },
@@ -881,13 +986,60 @@
         "product": "Hohos Rolled Cake Filled With Strawberry Flavored Jelly & Cream - 1 Pcs",
         "url": "https://spinneys-egypt.com/en/hohos-cake-rolled-with-strawberry-cream-1-piece",
         "price_egp": 5.0
+      },
+      {
+        "store": "Talabat Mart",
+        "product": "HOHOs King rolled Chocolate Cake with Cream, 60g",
+        "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/snacks-chocolate/cakes?aid=6963",
+        "price_egp": 10.0
+      }
+    ]
+  },
+  {
+    "id": "twinkies",
+    "name": "Twinkies cake",
+    "name_ar": "تwinكيز",
+    "category": "snacks",
+    "baseline_egp": 9.99,
+    "image": "/products/twinkies.jpg",
+    "aliases": [
+      "twinkies",
+      "cake",
+      "cream cake",
+      "sponge"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Twinkies Super Cream Cake - 1 Piece",
+      "url": "https://www.carrefouregypt.com/mafegy/en/cake-muffin/twinkies-super-cream-1p/p/650585?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": ""
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Twinkies Super Cream Cake - 1 Piece",
+        "url": "https://www.carrefouregypt.com/mafegy/en/cake-muffin/twinkies-super-cream-1p/p/650585?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 9.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "TWINKIES - DUO CAKE CREAM X CHOCOLATE - 1PC",
+        "url": "https://spinneys-egypt.com/en/twinkies-duo-cake-cream-x-chocolate-1pc",
+        "price_egp": 5.0
+      },
+      {
+        "store": "Talabat Mart",
+        "product": "Twinkies Super Original Cream Cake, 50g",
+        "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/snacks-chocolate/cakes?aid=6963",
+        "price_egp": 10.0
       }
     ]
   },
   {
     "id": "wafer",
-    "name": "Wafer bar",
-    "name_ar": "ويفر",
+    "name": "Mandolin wafer",
+    "name_ar": "ويفر ماندولين",
     "category": "snacks",
     "baseline_egp": 8.99,
     "image": "/products/wafer.jpg",
@@ -895,7 +1047,7 @@
       "wafer",
       "waffer",
       "biscuit",
-      "corona"
+      "mandolin"
     ],
     "source": {
       "store": "Carrefour Egypt",
@@ -910,6 +1062,12 @@
         "product": "Mandolin Wafer Cocoa Cream - 33gm",
         "url": "https://www.carrefouregypt.com/mafegy/en/wafers/mandolin-wafer-33g/p/660034?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 8.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "MANDOLIN - 2BISCUIT COATED W/CARAMEL+MILK CHOCOLATE - 34G",
+        "url": "https://spinneys-egypt.com/en/mandolin-2biscuit-coated-w-caramel-milk-chocolate-34g",
+        "price_egp": 8.95
       }
     ]
   },
@@ -963,23 +1121,29 @@
     ],
     "source": {
       "store": "Carrefour Egypt",
-      "product": "Juhayna Classic Guava Juice - 235ml",
-      "url": "https://www.carrefouregypt.com/mafegy/en/kids-juice/juhayna-classic-guava-juice-235m/p/433832?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
-      "size": "235ml"
+      "product": "Juhayna Premium Classics Orange Juice - 235 ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/kids-juice/juhayna-classic-orange-juice-235m/p/433831?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "235 ml"
     },
     "updated": "2026-07",
     "sources": [
       {
         "store": "Carrefour Egypt",
-        "product": "Juhayna Classic Guava Juice - 235ml",
-        "url": "https://www.carrefouregypt.com/mafegy/en/kids-juice/juhayna-classic-guava-juice-235m/p/433832?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "product": "Juhayna Premium Classics Orange Juice - 235 ml",
+        "url": "https://www.carrefouregypt.com/mafegy/en/kids-juice/juhayna-classic-orange-juice-235m/p/433831?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 9.99
       },
       {
         "store": "Spinneys",
-        "product": "Juhayna Classic Cocktail Juice- 235 Ml",
-        "url": "https://spinneys-egypt.com/en/juhayna-classic-cocktail-juice-235-ml",
+        "product": "Juhayna Classic Juice W.Mango - 235 Ml",
+        "url": "https://spinneys-egypt.com/en/juhayna-classic-mango-juice-235-ml",
         "price_egp": 9.95
+      },
+      {
+        "store": "Talabat Mart",
+        "product": "Juhayna Pure Cocktail Juice, 235ml",
+        "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/beverages/juices?aid=6963",
+        "price_egp": 21.0
       }
     ]
   },
@@ -988,7 +1152,7 @@
     "name": "Juhayna milk 1L",
     "name_ar": "لبن جهينة ١ لتر",
     "category": "drinks",
-    "baseline_egp": 47.99,
+    "baseline_egp": 46.99,
     "image": "/products/juhayna-milk-1l.jpg",
     "aliases": [
       "milk",
@@ -1008,12 +1172,12 @@
         "store": "Carrefour Egypt",
         "product": "Juhayna Full Cream Milk - 1 Liter",
         "url": "https://www.carrefouregypt.com/mafegy/en/full-cream-milk/juhayna-full-cream-milk-1l/p/12721?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
-        "price_egp": 47.99
+        "price_egp": 46.99
       },
       {
         "store": "Spinneys",
-        "product": "Juhayna Milk Semi Skimmed - 1 L",
-        "url": "https://spinneys-egypt.com/en/juhayna-semi-skimmed-milk-1-l-spinneys",
+        "product": "Juhayna Milk Skimmed - 1 L",
+        "url": "https://spinneys-egypt.com/en/juhayna-skimmed-milk-1-l-spinneys",
         "price_egp": 54.95
       }
     ]
@@ -1056,16 +1220,15 @@
   },
   {
     "id": "chewing-gum",
-    "name": "Chewing gum",
-    "name_ar": "لبان",
+    "name": "Mentos gum",
+    "name_ar": "لبان منتوس",
     "category": "snacks",
     "baseline_egp": 13.99,
     "image": "/products/chewing-gum.jpg",
     "aliases": [
       "gum",
       "chewing gum",
-      "mentos",
-      "trident"
+      "mentos"
     ],
     "source": {
       "store": "Carrefour Egypt",
@@ -1080,6 +1243,81 @@
         "product": "Mentos Fresh Gum Watermelon 3D - 8.5 gm",
         "url": "https://www.carrefouregypt.com/mafegy/en/chewing-gum/mentos-fresh-gum-3d-watermelon-8-5g/p/532317?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 13.99
+      },
+      {
+        "store": "Talabat Mart",
+        "product": "Mentos 3D Fresh Mint Sugar Free Gum, 8.5g",
+        "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/snacks-chocolate/candy-gums?aid=6963",
+        "price_egp": 14.0
+      }
+    ]
+  },
+  {
+    "id": "extra-gum",
+    "name": "Extra gum",
+    "name_ar": "لبان إكسترا",
+    "category": "snacks",
+    "baseline_egp": 14.99,
+    "image": "/products/extra-gum.jpg",
+    "aliases": [
+      "gum",
+      "chewing gum",
+      "extra",
+      "wrigley"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Extra Bubblemint Sugar Free Chewing Gum - 14 gram",
+      "url": "https://www.carrefouregypt.com/mafegy/en/chewing-gum/extra-gum-bubblemint-14g/p/518631?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "14 gram"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Extra Bubblemint Sugar Free Chewing Gum - 14 gram",
+        "url": "https://www.carrefouregypt.com/mafegy/en/chewing-gum/extra-gum-bubblemint-14g/p/518631?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 14.99
+      },
+      {
+        "store": "Talabat Mart",
+        "product": "Wrigley's  Extra Strawberry Pellets Gum, 14g",
+        "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/snacks-chocolate/candy-gums?aid=6963",
+        "price_egp": 15.0
+      }
+    ]
+  },
+  {
+    "id": "sting",
+    "name": "Sting energy drink",
+    "name_ar": "ستينج",
+    "category": "drinks",
+    "baseline_egp": 11.5,
+    "image": "",
+    "aliases": [
+      "sting",
+      "energy",
+      "energy drink"
+    ],
+    "source": {
+      "store": "Carrefour Egypt",
+      "product": "Sting Energy Drink - 250 ml",
+      "url": "https://www.carrefouregypt.com/mafegy/en/energy-drinks/sting-energy-drink-pet-250ml/p/599898?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "250 ml"
+    },
+    "updated": "2026-07",
+    "sources": [
+      {
+        "store": "Carrefour Egypt",
+        "product": "Sting Energy Drink - 250 ml",
+        "url": "https://www.carrefouregypt.com/mafegy/en/energy-drinks/sting-energy-drink-pet-250ml/p/599898?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "price_egp": 11.5
+      },
+      {
+        "store": "Spinneys",
+        "product": "Sting Energy Drink - 275 Ml",
+        "url": "https://spinneys-egypt.com/en/sting-energy-strawberry-drink-275ml",
+        "price_egp": 14.35
       }
     ]
   },
@@ -1137,6 +1375,18 @@
         "product": "Red Bull Energy Drink - 250ml",
         "url": "https://www.carrefouregypt.com/mafegy/en/energy-drinks/redbull-energy-drink-250m/p/218919?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 55.99
+      },
+      {
+        "store": "Spinneys",
+        "product": "Red Bull Energy Drink - 250 ML",
+        "url": "https://spinneys-egypt.com/en/red-bull-energy-drink-250-ml",
+        "price_egp": 55.95
+      },
+      {
+        "store": "Talabat Mart",
+        "product": "Red Bull Coconut & Berry Energy Drink, 250ml",
+        "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/beverages/sports-energy-drinks?aid=6963",
+        "price_egp": 60.0
       }
     ]
   },
@@ -1167,12 +1417,6 @@
         "product": "Eva Sun and Sea Kids Sunscreen Lotion SPF 50",
         "url": "https://www.carrefouregypt.com/mafegy/en/sunblock-lotion/eva-sun-sea-kids-lotion50-100m/p/682079?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 212.99
-      },
-      {
-        "store": "Spinneys",
-        "product": "Kamena Sunscreen Cream Spf 35 - 150 Ml",
-        "url": "https://spinneys-egypt.com/en/kamena-sunscreen-cream-spf-35-150-ml",
-        "price_egp": 349.95
       }
     ]
   },

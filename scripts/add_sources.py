@@ -17,6 +17,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
@@ -26,10 +27,31 @@ from elfar import search as elfar_search  # noqa: E402
 from seed_products import CATALOGUE, OUT, size_value  # noqa: E402
 from spinneys import browser  # noqa: E402
 from spinneys import search as spinneys_search  # noqa: E402
+from talabat import search as talabat_search  # noqa: E402
 
 
 # How far down the ranking to look for a working link before giving up on a store.
 MAX_CANDIDATES = 4
+
+# Spinneys is slow and intermittently times out under a long run. Without a retry a
+# transient failure silently costs that product its link, which looks identical to the
+# store genuinely not stocking the item -- eight of them vanished that way in one run.
+SEARCH_ATTEMPTS = 3
+RETRY_PAUSE_S = 5
+
+
+def search_with_retry(finder, keyword, instance, needs_browser, label, product_id):
+    """Run a store search, retrying transient failures before giving up."""
+    for attempt in range(1, SEARCH_ATTEMPTS + 1):
+        try:
+            return finder(keyword, instance) if needs_browser else finder(keyword)
+        except Exception as exc:  # noqa: BLE001
+            if attempt == SEARCH_ATTEMPTS:
+                print(f"  !! {product_id} @ {label}: {str(exc)[:60]} (after {attempt} tries)",
+                      file=sys.stderr)
+                return []
+            time.sleep(RETRY_PAUSE_S)
+    return []
 
 # These SPAs return HTTP 200 with a shell for any URL and render "not found" client-side,
 # so status codes tell us nothing -- the page has to be rendered to know if it is real.
@@ -53,6 +75,21 @@ def price_is_plausible(candidate, baseline_egp: float) -> bool:
         return False
     ratio = candidate.unit_price_egp / baseline_egp
     return 1 / MAX_PRICE_RATIO <= ratio <= MAX_PRICE_RATIO
+
+
+# How far a link's size may sit from the baseline product's size. The item's own
+# size_range is deliberately wide (30-120g covers every chocolate bar), so it admits an
+# 80g bar as evidence for a 30g one. This tightens against what was actually priced.
+MAX_SIZE_RATIO = 1.4
+
+
+def size_matches_baseline(candidate, baseline_size: str) -> bool:
+    """Whether a candidate is the same size as the product the baseline came from."""
+    want, got = size_value(baseline_size), size_value(candidate.size)
+    if want is None or got is None:
+        return True  # nothing to compare; other guards still apply
+    ratio = max(want, got) / min(want, got)
+    return ratio <= MAX_SIZE_RATIO
 
 
 def is_same_variant(candidate, item) -> bool:
@@ -97,7 +134,7 @@ def main() -> int:
     products = json.loads(OUT.read_text(encoding="utf-8"))
     by_id = {p["id"]: p for p in products}
     catalogue = {item.id: item for item in CATALOGUE}
-    added = {"spinneys": 0, "elfar": 0}
+    added = {"spinneys": 0, "elfar": 0, "talabat": 0}
 
     with browser() as instance:
         for product in products:
@@ -113,15 +150,19 @@ def main() -> int:
                 "price_egp": product["baseline_egp"],
             }]
 
-            for label, finder, key in (
-                ("Spinneys", spinneys_search, "spinneys"),
-                ("Mahmoud El Far", elfar_search, "elfar"),
+            for label, finder, key, needs_browser in (
+                ("Spinneys", spinneys_search, "spinneys", True),
+                ("Talabat Mart", talabat_search, "talabat", False),
+                ("Mahmoud El Far", elfar_search, "elfar", True),
             ):
-                try:
-                    ranked = ranked_matches(finder(item.keyword, instance), item)
-                except Exception as exc:  # noqa: BLE001 - a missing store is not fatal
-                    print(f"  !! {product['id']} @ {label}: {str(exc)[:70]}", file=sys.stderr)
+                # Talabat is server-rendered, so it takes an HTTP session rather than a
+                # browser -- no point launching a page for it.
+                found_items = search_with_retry(
+                    finder, item.keyword, instance, needs_browser, label, product["id"]
+                )
+                if not found_items:
                     continue
+                ranked = ranked_matches(found_items, item)
 
                 # Publishing a link that 404s is worse than publishing none: the whole
                 # point is that a reader can check the price. Listings can reference
@@ -130,6 +171,8 @@ def main() -> int:
                 found = None
                 for candidate in ranked[:MAX_CANDIDATES]:
                     if not candidate.url or not is_same_variant(candidate, item):
+                        continue
+                    if not size_matches_baseline(candidate, product["source"]["size"]):
                         continue
                     if not price_is_plausible(candidate, product["baseline_egp"]):
                         print(f"     (implausible price, skipping: {label} / {product['id']} "
@@ -156,7 +199,8 @@ def main() -> int:
             print(f"  {product['id']:20} {len(sources)} source(s)")
 
     OUT.write_text(json.dumps(products, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"\nadded links -- Spinneys: {added['spinneys']}, El Far: {added['elfar']}")
+    print(f"\nadded links -- Spinneys: {added['spinneys']}, "
+          f"Talabat: {added['talabat']}, El Far: {added['elfar']}")
     return 0
 
 
