@@ -815,7 +815,7 @@
     "name_ar": "مالتيزرز",
     "category": "snacks",
     "baseline_egp": 39.0,
-    "image": "",
+    "image": "/products/maltesers.jpg",
     "aliases": [
       "maltesers",
       "chocolate",
@@ -883,7 +883,7 @@
     "name_ar": "تودو براونيز",
     "category": "snacks",
     "baseline_egp": 13.99,
-    "image": "",
+    "image": "/products/todo-brownies.jpg",
     "aliases": [
       "todo",
       "brownies",
@@ -893,7 +893,7 @@
     ],
     "source": {
       "store": "Carrefour Egypt",
-      "product": "Todo Brownies Cake - 1 Piece 1 Piece",
+      "product": "Todo Brownies Cake - 1 Piece",
       "url": "https://www.carrefouregypt.com/mafegy/en/cake-muffin/todo-cake-brownies-1p/p/456512?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
       "size": ""
     },
@@ -901,7 +901,7 @@
     "sources": [
       {
         "store": "Carrefour Egypt",
-        "product": "Todo Brownies Cake - 1 Piece 1 Piece",
+        "product": "Todo Brownies Cake - 1 Piece",
         "url": "https://www.carrefouregypt.com/mafegy/en/cake-muffin/todo-cake-brownies-1p/p/456512?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 13.99
       },
@@ -1293,7 +1293,7 @@
     "name_ar": "ستينج",
     "category": "drinks",
     "baseline_egp": 11.5,
-    "image": "",
+    "image": "/products/sting.jpg",
     "aliases": [
       "sting",
       "energy",
@@ -1327,7 +1327,7 @@
     "name_ar": "مناديل مبللة",
     "category": "toiletries",
     "baseline_egp": 25.66,
-    "image": "",
+    "image": "/products/wet-wipes.jpg",
     "aliases": [
       "wipes",
       "wet wipes",

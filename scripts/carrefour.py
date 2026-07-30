@@ -36,16 +36,22 @@ PRODUCT_SPLIT_RE = re.compile(r'(?=href="/mafegy/en/[^"]*?/p/\d+)')
 # to whichever seller the site defaults to, which is often out of stock.
 PRODUCT_HREF_RE = re.compile(r'href="(/mafegy/en/[^"]*?/p/(\d+)[^"]*)"')
 
-# Product photos live on Carrefour's CDN under two shapes. Listing pages use
-# "sys-master-root/…/533152_2.jpg" keyed by the listing product id; product pages use the
-# canonical "pim-content/…/626935_main.jpg" keyed by a different PIM id. Pairing by
-# filename prefix is the only reliable link on listings, because the <img> sits before the
-# product link in the DOM and so falls outside the tile split.
+# Pairing by filename prefix is the only reliable way to link an image to a product on a
+# listing page, because the <img> sits before the product link in the DOM and so falls
+# outside the tile split.
+#
+# Carrefour serves product photos from two path roots (sys-master-root and pim-content)
+# and with two filename shapes ("{id}_main" and "{id}_2"). Handling only some combinations
+# silently produced imageless products -- Todo brownies, Maltesers, Sting and wet wipes all
+# used sys-master-root/..._main, which matched neither of the original patterns.
 IMAGE_RE = re.compile(
-    r"https://cdn\.mafrservices\.com/sys-master-root/[^\"\s\\]+?/(\d+)_\d+\.(?:jpg|jpeg|png|webp)[^\"\s\\]*"
+    r"https://cdn\.mafrservices\.com/(?:sys-master-root|pim-content)/[^\"\s\\]+?"
+    r"/(\d+)_(?:main|\d+)\.(?:jpg|jpeg|png|webp)[^\"\s\\]*"
 )
+# "_main" is the canonical packshot wherever it appears, so it is preferred.
 MAIN_IMAGE_RE = re.compile(
-    r"https://cdn\.mafrservices\.com/pim-content/[^\"\s\\]+?_main\.(?:jpg|jpeg|png|webp)[^\"\s\\]*"
+    r"https://cdn\.mafrservices\.com/(?:sys-master-root|pim-content)/[^\"\s\\]+?"
+    r"_main\.(?:jpg|jpeg|png|webp)[^\"\s\\]*"
 )
 # Multipacks are labelled several ways: "x Pack of 12", "- 12 Pieces", "- 20 Bottles".
 # Missing one makes a 12-pack look like a single item and understates the unit price.
@@ -100,6 +106,9 @@ def _extract_name(text: str, slug: str) -> str:
         sizes = list(SIZE_RE.finditer(name))
         if len(sizes) > 1:
             name = name[: sizes[1].start()].strip()
+        # Carrefour also repeats non-size units ("... - 1 Piece 1 Piece"), which the size
+        # cut above does not catch. Collapse any immediately repeated trailing phrase.
+        name = re.sub(r"\b(.{3,20}?)\s+\1\s*$", r"\1", name, flags=re.I)
         # Tidy a dash or comma left dangling by the cut.
         return re.sub(r"\s*[-–,]\s*$", "", name)
     return slug.replace("-", " ").title()
