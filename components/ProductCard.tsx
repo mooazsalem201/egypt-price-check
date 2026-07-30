@@ -154,6 +154,21 @@ export default function ProductCard({
                 {verdict === "overcharged" ? " and walk away if refused." : "."}
               </p>
             )}
+            {/* Only on the worst verdict, and worded for pressure rather than for a price
+                disagreement -- telling someone to ring a hotline over a few pounds would be
+                absurd and would waste a line meant for people who actually need it. */}
+            {verdict === "overcharged" && (
+              <p className="mt-2 text-xs">
+                Being pressured, followed, or refused your change? Tourism hotline{" "}
+                <a href="tel:19654" className="font-bold underline underline-offset-2">
+                  19654
+                </a>{" "}
+                · Tourist Police{" "}
+                <a href="tel:126" className="font-bold underline underline-offset-2">
+                  126
+                </a>
+              </p>
+            )}
           </div>
         )}
 

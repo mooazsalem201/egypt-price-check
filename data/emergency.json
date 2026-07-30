@@ -1,0 +1,65 @@
+{
+  "note": "Verified against official sources (eg.usembassy.gov, gov.uk, international.gc.ca, dfat.gov.au) in July 2026. Numbers are shown as dialled inside Egypt.",
+  "groups": [
+    {
+      "title": "If you are being pressured or scammed",
+      "entries": [
+        {
+          "label": "Tourism complaints hotline",
+          "number": "19654",
+          "dial": "19654",
+          "note": "Ministry of Tourism — the line for reporting overcharging"
+        },
+        {
+          "label": "Tourist Police",
+          "number": "126",
+          "dial": "126",
+          "note": "Scams, harassment, lost documents"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies",
+      "entries": [
+        {
+          "label": "All emergencies",
+          "number": "112",
+          "dial": "112",
+          "note": "Unified line, routes to the right service"
+        },
+        { "label": "Police", "number": "122", "dial": "122", "note": "" },
+        { "label": "Ambulance", "number": "123", "dial": "123", "note": "" },
+        { "label": "Fire", "number": "180", "dial": "180", "note": "Civil defence: 125" }
+      ]
+    },
+    {
+      "title": "Embassies in Cairo",
+      "entries": [
+        {
+          "label": "United States",
+          "number": "02 2797 3300",
+          "dial": "+20227973300",
+          "note": ""
+        },
+        {
+          "label": "United Kingdom",
+          "number": "02 2791 6000",
+          "dial": "+20227916000",
+          "note": ""
+        },
+        {
+          "label": "Canada",
+          "number": "02 2461 2200",
+          "dial": "+20224612200",
+          "note": ""
+        },
+        {
+          "label": "Australia",
+          "number": "02 2770 6600",
+          "dial": "+20227706600",
+          "note": ""
+        }
+      ]
+    }
+  ]
+}

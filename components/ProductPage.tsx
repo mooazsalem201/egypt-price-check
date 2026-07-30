@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
+import EmergencyNumbers from "./EmergencyNumbers";
 import { usePersisted } from "@/lib/usePersisted";
 import {
   CURRENCIES,
@@ -150,6 +151,8 @@ export default function ProductPage({ product, zones }: Props) {
           markups are estimates.
         </p>
       </section>
+
+      <EmergencyNumbers />
     </>
   );
 }

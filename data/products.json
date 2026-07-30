@@ -65,7 +65,7 @@
         "store": "Spinneys",
         "product": "Dasani Mineral Water - 1.5 L",
         "url": "https://spinneys-egypt.com/en/dasany-mineral-water-1-5-l",
-        "price_egp": 9.95
+        "price_egp": 9.25
       }
     ]
   },
@@ -131,12 +131,6 @@
         "store": "Carrefour Egypt",
         "product": "Nestle Pure Life Bottled Drinking Water - 600 ml",
         "url": "https://www.carrefouregypt.com/mafegy/en/still-water/nestle-natural-water-600m/p/34574?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
-        "price_egp": 6.5
-      },
-      {
-        "store": "Spinneys",
-        "product": "Nestle Mineral Water - 600 Ml",
-        "url": "https://spinneys-egypt.com/en/nestle-mineral-water-600-ml",
         "price_egp": 6.5
       }
     ]
@@ -242,7 +236,7 @@
         "store": "Spinneys",
         "product": "Elano Natural Drinking Water - 1.5 L",
         "url": "https://spinneys-egypt.com/en/elano-natural-water-1-5-l",
-        "price_egp": 10.5
+        "price_egp": 9.95
       }
     ]
   },
@@ -342,6 +336,12 @@
         "product": "Coca Cola Original Taste Soft Drink Glass Bottle - 330ml",
         "url": "https://www.carrefouregypt.com/mafegy/en/cola/coca-cola-glass-bottle-330m/p/510287?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 19.99
+      },
+      {
+        "store": "Talabat Mart",
+        "product": "Coca Cola Original Taste Soft Drink Glass, 330ml",
+        "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/beverages/soft-drinks?aid=6963",
+        "price_egp": 20.5
       }
     ]
   },
@@ -513,21 +513,27 @@
     ],
     "source": {
       "store": "Carrefour Egypt",
-      "product": "Chipsy Cheese Potato Chips - 65gm",
-      "url": "https://www.carrefouregypt.com/mafegy/en/chips/chipsy-cheese-65g/p/618172?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
-      "size": "65gm"
+      "product": "Chipsy Tomato Potato Chips - 65gram",
+      "url": "https://www.carrefouregypt.com/mafegy/en/chips/chipsy-tomato-65g/p/488210?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+      "size": "65gram"
     },
     "updated": "2026-07",
     "sources": [
       {
         "store": "Carrefour Egypt",
-        "product": "Chipsy Cheese Potato Chips - 65gm",
-        "url": "https://www.carrefouregypt.com/mafegy/en/chips/chipsy-cheese-65g/p/618172?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
+        "product": "Chipsy Tomato Potato Chips - 65gram",
+        "url": "https://www.carrefouregypt.com/mafegy/en/chips/chipsy-tomato-65g/p/488210?offer=offer_carrefour_&sid=SLOTTED&sellerId=0000",
         "price_egp": 9.99
       },
       {
+        "store": "Spinneys",
+        "product": "Chipsy Potato Chips With Cheese And Onion - 65G",
+        "url": "https://spinneys-egypt.com/en/chipsy-potato-chips-with-cheese-onion-178-gm",
+        "price_egp": 10.0
+      },
+      {
         "store": "Talabat Mart",
-        "product": "Chipsy Cheese Flavor Chips, 55g",
+        "product": "Chipsy Salt & Vinegar Flavor Chips, 55g",
         "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/snacks-chocolate/chips-dips?aid=6963",
         "price_egp": 10.0
       }
@@ -671,9 +677,9 @@
       },
       {
         "store": "Spinneys",
-        "product": "KITKAT - WAFER W/PISTACHIO KUNAFA+CRUNCHY BISCUITS - 41G",
-        "url": "https://spinneys-egypt.com/en/kitkat-wafer-w-pistachio-kunafa-crunchy-biscuits-41g-465053",
-        "price_egp": 48.5
+        "product": "KITKAT - KCHUNKY WAFER W/MILK CHOCO&WAFFLE PIECES+VANI.ICE. - 44G",
+        "url": "https://spinneys-egypt.com/en/kitkat-kchunky-wafer-w-milk-choco-waffle-pieces-vani-ice-44g",
+        "price_egp": 37.95
       }
     ]
   },
@@ -1141,7 +1147,7 @@
       },
       {
         "store": "Talabat Mart",
-        "product": "Juhayna Pure Cocktail Juice, 235ml",
+        "product": "Juhayna Pure Orange Juice, 235ml",
         "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/beverages/juices?aid=6963",
         "price_egp": 21.0
       }
@@ -1281,7 +1287,7 @@
       },
       {
         "store": "Talabat Mart",
-        "product": "Wrigley's  Extra Strawberry Pellets Gum, 14g",
+        "product": "Wrigley's Extra Gum Peppermint Sugar Free Chewing Gum, 10 Pellets, 14g",
         "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/snacks-chocolate/candy-gums?aid=6963",
         "price_egp": 15.0
       }
@@ -1384,9 +1390,15 @@
       },
       {
         "store": "Talabat Mart",
-        "product": "Red Bull Coconut & Berry Energy Drink, 250ml",
+        "product": "Red Bull Energy Drink, 250ml",
         "url": "https://www.talabat.com/egypt/grocery/801350/talabat-mart-el-suez/beverages/sports-energy-drinks?aid=6963",
         "price_egp": 60.0
+      },
+      {
+        "store": "Mahmoud El Far",
+        "product": "Red Bull White edition energy drink 250ml",
+        "url": "https://mahmoudelfar.com/products/%D8%B1%D9%8A%D8%AF-%D8%A8%D9%84-%D9%85%D8%B4%D8%B1%D9%88%D8%A8-%D8%B7%D8%A7%D9%82%D8%A9-%D9%88%D8%A7%D9%8A%D8%AA-%D8%A7%D9%8A%D8%AF%D9%8A%D8%B4%D9%86-250-%D9%85%D9%84",
+        "price_egp": 59.95
       }
     ]
   },

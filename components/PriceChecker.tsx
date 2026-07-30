@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Fuse from "fuse.js";
 import ProductCard from "./ProductCard";
+import EmergencyNumbers from "./EmergencyNumbers";
 import { usePersisted } from "@/lib/usePersisted";
 import {
   CURRENCIES,
@@ -163,6 +164,8 @@ export default function PriceChecker({ products, zones }: Props) {
           ))
         )}
       </div>
+
+      <EmergencyNumbers />
     </div>
   );
 }
