@@ -1,0 +1,28 @@
+# Cloudflare Pages header rules. Files in public/ are copied to the build output root,
+# so this ships as out/_headers and Cloudflare picks it up automatically.
+#
+# This is the Cloudflare equivalent of staticwebapp.config.json, which is Azure-only.
+
+# The service worker must be revalidated on every request. If it is cached long-term,
+# visitors are pinned to whatever build they first loaded and never receive price updates
+# -- a failure that looks like the site being broken and is painful to diagnose.
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# The precache manifest is regenerated every build and lists content-hashed filenames, so
+# a stale copy would have the worker fetching assets that no longer exist.
+/precache.json
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# Hashed build assets never change under the same name, so they can be cached forever.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Product photos are content that rarely changes but is replaced under the same name when
+# a catalogue entry is re-seeded. A day is long enough to be fast, short enough to refresh.
+/products/*
+  Cache-Control: public, max-age=86400
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
