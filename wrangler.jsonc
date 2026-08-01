@@ -1,0 +1,22 @@
+{
+  // Cloudflare has merged Pages into Workers, and new accounts often only get the Workers
+  // creation flow -- which asks for a deploy command rather than a build output directory.
+  // This config is what tells `npx wrangler deploy` that the thing being deployed is a
+  // folder of static files, not a script.
+  //
+  // With this present, the Workers flow works for a static export:
+  //   Build command:  npm run build
+  //   Deploy command: npx wrangler deploy
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "egypt-price-check",
+  "compatibility_date": "2026-07-01",
+
+  "assets": {
+    // Where `next build` puts the static export, per output: "export" in next.config.ts.
+    "directory": "./out",
+    // Serve /price/dasani-15l from price/dasani-15l.html, and fall back to the 404 page
+    // rather than a bare error. Matches how Vercel and Azure resolve these routes.
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
