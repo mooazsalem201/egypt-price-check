@@ -7,7 +7,7 @@
  * everything else derives from it, so a domain move needs one edit.
  */
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://egyptprice.vercel.app"
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://egyptprice.com"
 ).replace(/\/$/, "");
 
 export const SITE_NAME = "Egypt Price Check";
