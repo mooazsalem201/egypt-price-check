@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Fuse from "fuse.js";
+import Link from "next/link";
 import ProductCard from "./ProductCard";
 import EmergencyNumbers from "./EmergencyNumbers";
 import { usePersisted } from "@/lib/usePersisted";
@@ -63,7 +64,18 @@ export default function PriceChecker({ products, zones }: Props) {
     [products],
   );
 
-  const results = query.trim() ? fuse.search(query.trim()).map((r) => r.item) : products;
+  // With 41 products the flat list is long enough that browsing needs a shortcut, but a
+  // search term should always win -- filtering someone's search by a stale category
+  // selection looks like the search is broken.
+  const categories = useMemo(
+    () => [...new Set(products.map((p) => p.category))].sort(),
+    [products],
+  );
+  const [category, setCategory] = useState<string | null>(null);
+
+  const searched = query.trim() ? fuse.search(query.trim()).map((r) => r.item) : products;
+  const results =
+    category && !query.trim() ? searched.filter((p) => p.category === category) : searched;
 
   return (
     <div className="mx-auto max-w-2xl px-4 pb-16">
@@ -146,11 +158,35 @@ export default function PriceChecker({ products, zones }: Props) {
 
       <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{zone.note}</p>
 
+      {/* Hidden while searching: the results are already narrowed, and leaving the chips
+          active would silently hide matches the search found. */}
+      {!query.trim() && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          <CategoryChip
+            label="All"
+            active={category === null}
+            onClick={() => setCategory(null)}
+          />
+          {categories.map((c) => (
+            <CategoryChip
+              key={c}
+              label={c}
+              active={category === c}
+              onClick={() => setCategory(category === c ? null : c)}
+            />
+          ))}
+        </div>
+      )}
+
       <div className="mt-3 space-y-3">
         {results.length === 0 ? (
           <p className="rounded-2xl border border-dashed border-slate-300 p-8 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
             Nothing matches &ldquo;{query}&rdquo;. Try &ldquo;water&rdquo; or
-            &ldquo;chips&rdquo;.
+            &ldquo;chips&rdquo;. Missing something?{" "}
+            <Link href="/feedback" className="underline underline-offset-2">
+              Tell me
+            </Link>
+            .
           </p>
         ) : (
           results.map((product) => (
@@ -167,5 +203,30 @@ export default function PriceChecker({ products, zones }: Props) {
 
       <EmergencyNumbers />
     </div>
+  );
+}
+
+function CategoryChip({
+  label,
+  active,
+  onClick,
+}: {
+  label: string;
+  active: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      className={`rounded-full px-3.5 py-2 text-sm font-medium capitalize transition ${
+        active
+          ? "bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900"
+          : "bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
+      }`}
+    >
+      {label}
+    </button>
   );
 }

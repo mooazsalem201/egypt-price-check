@@ -116,14 +116,24 @@ def is_same_variant(candidate, item) -> bool:
     return True
 
 
-def link_is_live(url: str, browser_instance, timeout_ms: int = 40000) -> bool:
-    """Whether a product URL actually renders a product."""
+def link_shows_product(url: str, product_name: str, browser_instance,
+                       timeout_ms: int = 40000) -> bool:
+    """Whether the linked page renders, and actually shows the product named.
+
+    Being live is not enough. Talabat rotates the twenty items a category page displays,
+    so a link captured last week can still load fine while no longer containing the item
+    it was captured for -- which is exactly the "this doesn't go to the thing" complaint.
+    Checking for the product's distinctive words catches that.
+    """
+    tokens = [t for t in re.split(r"\W+", product_name.lower()) if len(t) > 3][:2]
     page = browser_instance.new_page()
     try:
         page.goto(url, wait_until="domcontentloaded", timeout=timeout_ms)
         page.wait_for_timeout(2800)
         text = page.inner_text("body").lower()
-        return len(text) > 200 and not any(m in text for m in NOT_FOUND_MARKERS)
+        if len(text) < 200 or any(m in text for m in NOT_FOUND_MARKERS):
+            return False
+        return all(t in text for t in tokens) if tokens else True
     except Exception:  # noqa: BLE001 - unreachable counts as dead
         return False
     finally:
@@ -148,12 +158,17 @@ def main() -> int:
                 "product": product["source"]["product"],
                 "url": product["source"]["url"],
                 "price_egp": product["baseline_egp"],
+                "link_kind": "product",
             }]
 
-            for label, finder, key, needs_browser in (
-                ("Spinneys", spinneys_search, "spinneys", True),
-                ("Talabat Mart", talabat_search, "talabat", False),
-                ("Mahmoud El Far", elfar_search, "elfar", True),
+            # link_kind distinguishes a page *about* the product from a listing that
+            # merely contains it. Talabat has no per-product pages -- items open in an
+            # overlay and ?itemId= does not deep-link -- so its links are category pages
+            # and the UI says so rather than implying otherwise.
+            for label, finder, key, needs_browser, link_kind in (
+                ("Spinneys", spinneys_search, "spinneys", True, "product"),
+                ("Talabat Mart", talabat_search, "talabat", False, "category"),
+                ("Mahmoud El Far", elfar_search, "elfar", True, "product"),
             ):
                 # Talabat is server-rendered, so it takes an HTTP session rather than a
                 # browser -- no point launching a page for it.
@@ -179,11 +194,11 @@ def main() -> int:
                               f"@ {candidate.unit_price_egp} vs {product['baseline_egp']})",
                               file=sys.stderr)
                         continue
-                    if link_is_live(candidate.url, instance):
+                    if link_shows_product(candidate.url, candidate.name, instance):
                         found = candidate
                         break
-                    print(f"     (dead link, trying next: {label} / {product['id']})",
-                          file=sys.stderr)
+                    print(f"     (link does not show the product, trying next: "
+                          f"{label} / {product['id']})", file=sys.stderr)
 
                 if not found:
                     continue
@@ -192,6 +207,7 @@ def main() -> int:
                     "product": found.name,
                     "url": found.url,
                     "price_egp": found.unit_price_egp,
+                    "link_kind": link_kind,
                 })
                 added[key] += 1
 

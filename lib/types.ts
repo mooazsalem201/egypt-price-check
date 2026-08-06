@@ -11,6 +11,12 @@ export interface VerificationSource {
   product: string;
   url: string;
   price_egp: number;
+  /**
+   * "product" links a page about this item; "category" links a listing containing it,
+   * which is the best some stores offer. Labelled in the UI so a category link is not
+   * mistaken for a broken product link.
+   */
+  link_kind?: "product" | "category";
 }
 
 export interface Product {

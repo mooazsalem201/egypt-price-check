@@ -208,6 +208,9 @@ export default function ProductCard({
                 className="underline decoration-dotted underline-offset-2 hover:text-sky-600 dark:hover:text-sky-400"
               >
                 {source.store} {source.price_egp} EGP
+                {/* Some stores have no per-product page, so the link lands on the aisle
+                    the price was read from. Saying so beats letting it look broken. */}
+                {source.link_kind === "category" && " (aisle)"}
               </a>
             ))}
           </p>
