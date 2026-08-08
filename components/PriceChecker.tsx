@@ -158,6 +158,17 @@ export default function PriceChecker({ products, zones }: Props) {
 
       <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{zone.note}</p>
 
+      {/* Once, not on every card. `bdi` isolates the Arabic so the surrounding English
+          punctuation stops being reordered -- inline it rendered as "them سعر)" with the
+          brackets on the wrong sides. */}
+      <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+        Tip: many Egyptian packs have the price printed on them{" "}
+        <bdi lang="ar" dir="rtl">
+          سعر الجمهور
+        </bdi>{" "}
+        — worth a look before you pay.
+      </p>
+
       {/* Hidden while searching: the results are already narrowed, and leaving the chips
           active would silently hide matches the search found. */}
       {!query.trim() && (

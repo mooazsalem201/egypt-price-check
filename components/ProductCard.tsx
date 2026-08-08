@@ -83,8 +83,11 @@ export default function ProductCard({
           <p className="text-sm text-slate-600 dark:text-slate-300">
             {product.source.product}
           </p>
-          <p className="text-sm text-slate-500 dark:text-slate-400" dir="rtl" lang="ar">
-            {product.name_ar}
+          {/* bdi rather than dir="rtl" on the block: the latter right-aligns the line, so
+              the Arabic drifts to the far edge away from the English name it belongs to.
+              bdi keeps the line left-aligned while still rendering the Arabic correctly. */}
+          <p className="text-sm text-slate-500 dark:text-slate-400">
+            <bdi lang="ar">{product.name_ar}</bdi>
           </p>
         </div>
       </header>
@@ -172,20 +175,14 @@ export default function ProductCard({
           </div>
         )}
 
-        {/* Not every Egyptian pack is price-marked, so this is a tip rather than the
-            headline -- but where it exists it beats any estimate we can compute, because
-            it is printed on the thing in your hand. */}
-        <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
-          Tip: many Egyptian packs have the price printed on them
-          {" "}
-          <span dir="rtl" lang="ar">
-            (سعر الجمهور)
-          </span>
-          {" "}— worth a look before you pay.
-        </p>
-        <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">
-          Stays on your phone — nothing is sent anywhere.
-        </p>
+        {/* Shown only once a verdict exists. As static text it repeated on all 41 cards,
+            which is where reassurance turns into noise -- and it matters at the moment
+            someone has actually typed a price, not before. */}
+        {verdict && (
+          <p className="mt-2 text-xs text-slate-400 dark:text-slate-500">
+            Worked out on your phone — nothing is sent anywhere.
+          </p>
+        )}
       </div>
 
       <footer className="mt-3 space-y-1 text-xs text-slate-400 dark:text-slate-500">
@@ -233,6 +230,12 @@ function Band({
 }) {
   const dot =
     tone === "fair" ? "bg-emerald-500" : tone === "high" ? "bg-amber-500" : "bg-rose-500";
+  // "Fair" is the answer someone came for; the other two are context for judging a quote,
+  // so they sit a step quieter rather than competing with it.
+  const emphasis =
+    tone === "fair"
+      ? "text-lg font-bold text-slate-900 dark:text-slate-50"
+      : "text-base font-semibold text-slate-600 dark:text-slate-300";
   return (
     <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
       <dt className="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400">
@@ -240,9 +243,7 @@ function Band({
         {term}
       </dt>
       <dd className="ml-auto text-right">
-        <span className="text-lg font-bold tabular-nums text-slate-900 dark:text-slate-50">
-          {value}
-        </span>
+        <span className={`tabular-nums ${emphasis}`}>{value}</span>
         {egp && (
           <span className="ml-2 text-sm tabular-nums text-slate-500 dark:text-slate-400">
             {egp}
