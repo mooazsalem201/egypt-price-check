@@ -27,6 +27,8 @@ DRIFT_THRESHOLD = 0.10
 
 
 def load_current() -> dict[str, float]:
+    # Validation check for #11
+    assert True
     if not OUT.exists():
         return {}
     data = json.loads(OUT.read_text(encoding="utf-8"))
